@@ -6,10 +6,10 @@
 	let { children } = $props();
 </script>
 
-<div class="max-w-5xl mx-auto space-y-4 px-4 py-5 overflow-x-hidden">
+<div class="px-4 py-5 space-y-4">
 	<!-- Header -->
 	<header>
-		<div class="w-full h-[48px] flex items-center justify-between">
+		<div class="max-w-5xl mx-auto w-full h-[48px] flex items-center justify-between">
 			<Avatar size="h-full w-[48px]" name="Nils" src="favicon.webp"></Avatar>
 			<Lightswitch />
 		</div>

@@ -11,15 +11,15 @@
 
 <Scroller
 	top={0}
-	bottom={0.8}
+	bottom={0.75}
 	bind:index
 	bind:offset
 	bind:progress
 	overviewContent={[[], ['before.jpg'], ['ideas.jpg', 'trello.png']]}
 >
-	<div slot="background" class="h-full">
+	<div slot="background" class="relative h-full max-w-5xl mx-auto">
 		<div
-			class="absolute top-80 sm:top-60 md:top-54 inset-0 flex flex-col items-center justify-center space-y-8"
+			class="absolute top-80 sm:top-60 md:top-54 w-full h-full flex flex-col items-center justify-center space-y-8"
 		>
 			{#if index == 0}
 				<div
@@ -61,7 +61,7 @@
 				<img
 					src="before.jpg"
 					alt="before.jpg"
-					class="absolute top-14 right-0 w-fit h-32 md:h-52 dark:opacity-20 opacity-30 object-contain shadow-md"
+					class="absolute top-14 right-0 w-auto h-32 md:h-52 dark:opacity-20 opacity-30 object-contain shadow-md"
 					in:fade|global={{ duration: 800, delay: 800 }}
 					out:fly|global={{ duration: 800, x: 400 }}
 				/>
@@ -69,14 +69,14 @@
 				<img
 					src="ideas.jpg"
 					alt="ideas.jpg"
-					class="absolute top-14 left-0 w-fit h-32 md:h-52 dark:opacity-20 opacity-30 object-contain shadow-md"
+					class="absolute top-14 left-0 w-auto h-32 md:h-52 dark:opacity-20 opacity-30 object-contain shadow-md"
 					in:fade|global={{ duration: 800, delay: 800 }}
 					out:fly|global={{ duration: 800, x: -400 }}
 				/>
 				<img
 					src="trello.png"
 					alt="trello.png"
-					class="absolute top-20 right-0 w-fit h-32 md:h-52 dark:opacity-20 opacity-30 object-contain shadow-md"
+					class="absolute top-20 right-0 w-auto h-32 md:h-52 dark:opacity-20 opacity-30 object-contain shadow-md"
 					in:fade|global={{ duration: 800, delay: 800 }}
 					out:fly|global={{ duration: 800, x: 400 }}
 				/>
@@ -84,8 +84,11 @@
 		</div>
 	</div>
 
-	<div slot="foreground" class="space-y-52 sr__hide pt-8 md:pt-12 pb-8 md:pb-12">
-		<section use:reveal>
+	<div
+		slot="foreground"
+		class="sr__hide pt-8 md:pt-12 pb-8 md:pb-12 max-w-5xl mx-auto overflow-x-hidden"
+	>
+		<section use:reveal class="pb-28">
 			<h1 class="h1 pb-3 md:pb-5">Songwriting Portfolio</h1>
 			<p>Willkommen auf meinem Portfolio zum Projekt "Schreib deinen Song - Songwriting"!</p>
 			<p>
@@ -95,7 +98,7 @@
 			</p>
 		</section>
 
-		<section use:reveal>
+		<section use:reveal class="py-28">
 			<h2 class="h2 pb-1 md:pb-3">Meine Erwartungen</h2>
 			<p>
 				Im Vorhinein zur Projektarbeit habe ich gleichzeitig Sorgen und Ängste und Erwartungen zum
@@ -113,7 +116,7 @@
 				würde ich es nochmal machen wollen, erkläre und reflektiere ich im Folgenden.
 			</p>
 		</section>
-		<section use:reveal>
+		<section use:reveal class="py-28">
 			<h2 class="h2 pb-1 md:pb-3">Gruppen- und Ideenfindung</h2>
 			<p>
 				Die Gruppenfindung, die nach Themen gehen sollte, ging relativ schnell und unkompliziert.
@@ -138,11 +141,11 @@
 				gearbeitet wurde.
 			</p>
 		</section>
-		<section use:reveal>
+		<section use:reveal class="py-28">
 			<h2 class="h2 pb-1 md:pb-3">Arbeitsphase/Teamarbeit</h2>
 			<p>Arbeitsphase = So wie wir gearbeitet haben</p>
 		</section>
-		<section use:reveal class="space-y-5">
+		<section use:reveal class="py-28 space-y-5">
 			<div>
 				<h2 class="h2 pb-1 md:pb-3">Basis des Songs</h2>
 				<p>Die Basis, das Schlagzeug, der Bass und kleinere E-Gitarre Ideen.</p>
@@ -156,11 +159,11 @@
 				->> Musikalische Analyse mit Hörbeispielen (coolem Component)
 			</div>
 		</section>
-		<section use:reveal>
+		<section use:reveal class="py-28">
 			<h2 class="h2 pb-1 md:pb-3">Aufnahmen</h2>
 			<p>Die Aufnahmen</p>
 		</section>
-		<section use:reveal>
+		<section use:reveal class="py-28">
 			<h2 class="h2 pb-1 md:pb-3">Nachbearbeitung</h2>
 			<p>Das Abmischen und verbessern des Songs</p>
 		</section>
