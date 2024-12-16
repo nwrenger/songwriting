@@ -16,7 +16,7 @@ export default {
 		typography,
 		forms,
 		skeleton({
-			themes: [themes.catppuccin],
+			themes: [themes.catppuccin]
 		})
 	]
 } satisfies Config;
