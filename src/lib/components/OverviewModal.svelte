@@ -66,7 +66,7 @@
 				>
 					{#each pictureContent as picture_src}
 						<img
-							class="rounded-container-token"
+							class="rounded-container-token object-cover h-auto max-h-[300px] shrink-0"
 							src={picture_src}
 							alt={picture_src}
 							loading="lazy"
