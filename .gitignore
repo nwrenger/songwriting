@@ -6,7 +6,6 @@ node_modules
 .netlify
 .wrangler
 /.svelte-kit
-/.vscode
 /build
 
 # OS
@@ -14,6 +13,7 @@ node_modules
 Thumbs.db
 
 # Env
+/.vscode
 .env
 .env.*
 !.env.example
