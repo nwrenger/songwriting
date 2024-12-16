@@ -1,0 +1,6 @@
+{
+    "cSpell.language": "en,de-DE",
+    "yaml.schemas": {
+        "https://json.schemastore.org/github-workflow.json": "file:///Users/nils/Documents/code/web-apps/crazed-self-portfolio/.github/workflows/deploy.yml"
+    }
+}
