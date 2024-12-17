@@ -7,18 +7,6 @@
 	let index: number = $state(0);
 	let offset: number = $state(0);
 	let progress: number = $state(0);
-
-	let indexTimed = $state(0);
-	let timer: ReturnType<typeof setTimeout>;
-
-	$effect(() => {
-		if (index !== indexTimed) {
-			clearTimeout(timer);
-			timer = setTimeout(() => {
-				indexTimed = index;
-			}, 350);
-		}
-	});
 </script>
 
 <svelte:head>
@@ -36,13 +24,18 @@
 	bind:index
 	bind:offset
 	bind:progress
-	overviewContent={[[], ['before.jpg'], ['ideas.jpg', 'trello.png']]}
+	overviewContent={[
+		[],
+		['before.jpg'],
+		['ideas.jpg', 'trello.png'],
+		['songtext-1.jpeg', 'songtext-2.jpeg', 'final-songtext-1.png', 'final-songtext-2.png']
+	]}
 >
 	<div slot="background" class="relative h-full max-w-5xl mx-auto">
 		<div
 			class="absolute top-80 sm:top-60 md:top-54 w-full h-full flex flex-col items-center justify-center space-y-8"
 		>
-			{#if indexTimed == 0}
+			{#if index == 0}
 				<div
 					class="absolute top-20 left-8 music-note text-indigo-400"
 					in:fly|global={{ x: -300, duration: 1000, delay: 800 }}
@@ -78,7 +71,7 @@
 				>
 					<Mouse class="w-12 h-12 md:w-16 md:h-16" />
 				</div>
-			{:else if indexTimed == 1}
+			{:else if index == 1}
 				<img
 					src="before.jpg"
 					alt="before.jpg"
@@ -86,7 +79,7 @@
 					in:fade|global={{ duration: 800, delay: 800 }}
 					out:fly|global={{ duration: 800, x: 400 }}
 				/>
-			{:else if indexTimed == 2}
+			{:else if index == 2}
 				<img
 					src="ideas.jpg"
 					alt="ideas.jpg"
@@ -100,6 +93,35 @@
 					class="absolute top-20 right-0 w-auto h-32 md:h-52 dark:opacity-20 opacity-30 object-contain shadow-md"
 					in:fade|global={{ duration: 800, delay: 800 }}
 					out:fly|global={{ duration: 800, x: 400 }}
+				/>
+			{:else if index == 3}
+				<img
+					src="final-songtext-2.png"
+					alt="final-songtext-2.png"
+					class="absolute top-48 right-12 w-auto h-32 md:h-52 dark:opacity-20 opacity-30 object-contain shadow-md"
+					in:fade|global={{ duration: 800, delay: 800 }}
+					out:fly|global={{ duration: 800, x: 500 }}
+				/>
+				<img
+					src="final-songtext-1.png"
+					alt="final-songtext-1.png"
+					class="absolute top-0 right-0 w-auto h-32 md:h-52 dark:opacity-20 opacity-30 object-contain shadow-md"
+					in:fade|global={{ duration: 800, delay: 800 }}
+					out:fly|global={{ duration: 800, x: 400 }}
+				/>
+				<img
+					src="songtext-1.jpeg"
+					alt="songtext-1.jpeg"
+					class="absolute top-12 left-20 w-auto h-32 md:h-52 dark:opacity-20 opacity-30 object-contain shadow-md"
+					in:fade|global={{ duration: 800, delay: 800 }}
+					out:fly|global={{ duration: 800, x: -400 }}
+				/>
+				<img
+					src="songtext-2.jpeg"
+					alt="songtext-2.jpeg"
+					class="absolute top-[-120px] left-2 w-auto h-32 md:h-52 dark:opacity-20 opacity-30 object-contain shadow-md"
+					in:fade|global={{ duration: 800, delay: 800 }}
+					out:fly|global={{ duration: 800, x: -300 }}
 				/>
 			{/if}
 		</div>
@@ -126,12 +148,12 @@
 				Spaß in meiner Gruppe daran zu haben. Das ist auch der ursprüngliche Grund warum ich Musik
 				im 1. Semester gewählt hatte, für das Songwriting-Projekt. Nichtdestotrotz ist mir das
 				Endprodukt auch wichtig, es soll wenigstens Spaß mache sich an zu hören. Das ist mein
-				jetziger Anspruch.
+				jetziger Anspruch. Insgesamt werden hier zwar einige Sorgen ersichtlich, jedoch wurde eher
+				Positiv auf die kommende Projektarbeit geguckt (im Vorhinein verfasst, siehe Bild 1).
 			</p>
 			<p>
-				Insgesamt werden hier zwar einige Sorgen ersichtlich, jedoch wurde eher Positiv auf die
-				kommende Projektarbeit geguckt. Inwiefern diese dann lief, ob es Schwierigkeiten gab, und
-				würde ich es nochmal machen wollen, erkläre und reflektiere ich im Folgenden.
+				Inwiefern diese dann lief, ob es Schwierigkeiten gab, und würde ich es nochmal machen
+				wollen, erkläre und reflektiere ich im Folgenden.
 			</p>
 		</section>
 		<section use:reveal class="py-28">
@@ -147,6 +169,7 @@
 				bzw. Grunge mag, sind wir dann schließlich auf die Band Nirvana gekommen. In Bild 1 zu
 				diesem Unterpunkt ist dabei die Songidee aufgeschrieben, auf die wir uns geeinigt hatten.
 			</p>
+			<br />
 			<p>
 				Zudem hatten wir auch hier direkt ein Trello Board erstellt (siehe Bild 2), um besser im
 				Team zu arbeiten und seine vergangene Arbeit nach zu vollziehen. In Retrospektive kann ich
@@ -160,30 +183,98 @@
 			</p>
 		</section>
 		<section use:reveal class="py-28">
-			<h2 class="h2 pb-1 md:pb-3">Teamarbeit</h2>
-			<p>Arbeitsphase = So wie wir gearbeitet haben</p>
+			<h2 class="h2 pb-1 md:pb-3">Teamarbeit und Ablauf</h2>
+			<p>
+				Unsere Teamarbeit war insgesamt immer sehr produktiv. Man kann den Prozess auch gut mit dem
+				englischen Ausdruck "Try and Error" beschreiben. Wir haben viel ausprobiert und sind dem
+				Endprodukt so unserem, auch von uns umsetzbaren Endprodukt immer näher gekommen. Dabei haben
+				wir auch viele Ideen verworfen, wir müssen ja nicht 5, sondern einen Song schreiben. Auch
+				war es für uns Anfangs schwierig Rhythmen und Melodien zu finden, die zusammenpassten und
+				nach unserem subjektiven Eindruck auch gut klangen.
+			</p>
+			<br />
+			<p>
+				Wir haben direkt mit der Basis des Songs begonnen, den Instrumenten. Im Vergleich zu andren
+				Gruppen, welche erst angefangen hatten ihren Songtext zu schreiben, haben wir direkt damit
+				angefangen Songs der Band "Nirvana" anzuhören und ein Schlagzeug, Bass und E-Gitarre mit
+				Midi Werkzeugen von GarageBand zu erstellen. Dies war viel leichter als einen Songtext aus
+				dem Nichts zu schreiben, trotzdem hätte man sich da retrospektiv schon auf ein generelles
+				Thema einigen können, was ich aber nicht bereue, da dieser, sehr kreative Prozess, sehr viel
+				Spaß gemacht hat.
+			</p>
+			<br />
+			<p>
+				Wir saßen dabei anfangs, als man noch dachte, man hätte viel Zeit, am Midi-Keyboard und hat
+				viel ausprobiert. Ab ca. Ende November/Anfang Dezember, als das generelle Gerüst des Songs
+				bestehend aus Schlagzeug, Bass und E-Gitarre (zu dem Zeitpunkt noch alles mit
+				Midi-Instrumenten umgesetzt) stand, teilten wir uns immer mehr auf. Z.B. beim Schreiben des
+				Songtextes schrieb jeder einzeln sich Texte beim auf und ab Hören des "Gerüsts" auf (siehe
+				Bild 1-2, Bild 3-4 ist der finale Text mit Titel). Nach ca. 20 minütigen Intervallen
+				tauschten wir uns aus. Der Gedanke war, dass wir schnell einen Text brauchten, wobei die
+				jeweilige Einzelarbeit sich als eine sehr gute Methode herausstellte. Das Resultat war ein,
+				auch Nirvana typisch, eher "verrückter" Text innerhalb von 90 Minuten (2 getrennten
+				Stunden), siehe z.B. "Paper Cuts", wobei über Missbrauch und mentale Qualen singt. Dieser
+				wurde zwar noch 2-3 mal angepasst, aber der generelle Inhalt war vergleichsweise zu anderen
+				Gruppen schnell fertig. Alleinig der Name des Songs und das Hinzufügen einer weiteren
+				Strophe von Hanno hat diesen Teil in die Länge gezogen. Ab diesen Zeitpunkt waren wir schon
+				mitten in den Aufnahmen drinnen und wurden in Stunden, wo keine Aufnahmen gemacht wurde,
+				erledigt.
+			</p>
+			<br />
+			<p>
+				In diesen Einzelarbeitsphasen war Rückmeldung an die jeweilig andere Person seines
+				Fortschritts ein a und o, wir wollten etwas erschaffen, was uns beiden gefällt, nicht NUR
+				Hanno oder NUR mir. Das hat zum Anderen auch, obwohl wir nun meistens Einzeln an etwas
+				arbeiteten, uns manchmal etwas verlangsamt. Auch, weil wir an dem Punkt auch noch nach
+				unserer "Try and Error" arbeitsweise nachgingen.
+			</p>
+			<br />
+			<p>
+				So ist es gekommen, dass wir die letzten Aufnahmen und das Abmischen bei mir zu Hause machen
+				mussten.
+			</p>
 		</section>
 		<section use:reveal class="py-28 space-y-5">
 			<div>
 				<h2 class="h2 pb-1 md:pb-3">Basis des Songs</h2>
-				<p>Die Basis, das Schlagzeug, der Bass und kleinere E-Gitarre Ideen.</p>
+				<p>
+					Die oben beschriebene Basis bestand dabei aus einem Schlagzeug, Bass und E-Gitarre. Ich
+					habe hauptsächlich Schlagzeug und Bass geschrieben, deswegen werde ich im folgenden nur
+					das diese beiden musikalisch analysieren.
+				</p>
 			</div>
 			<div>
 				<h3 class="h3 pb-0.5 md:pb-2">Schlagzeug</h3>
-				->> Musikalische Analyse mit Hörbeispielen (coolem Component)
+				Das Schlagzeug war dabei stark orientiert an ->> Musikalische Analyse mit Hörbeispielen (coolem
+				Component)
 			</div>
 			<div>
 				<h3 class="h3 pb-0.5 md:pb-2">Bass</h3>
 				->> Musikalische Analyse mit Hörbeispielen (coolem Component)
 			</div>
 		</section>
-		<section use:reveal class="py-28">
-			<h2 class="h2 pb-1 md:pb-3">Aufnahmen</h2>
-			<p>Die Aufnahmen</p>
+		<section use:reveal class="py-28 space-y-5">
+			<div>
+				<h2 class="h2 pb-1 md:pb-3">Aufnahmen</h2>
+				<p>
+					<!-- todo -->
+				</p>
+			</div>
+			<div>
+				<h3 class="h3 pb-0.5 md:pb-2">E-Gitarre</h3>
+				<!-- todo -->
+			</div>
+			<div>
+				<h3 class="h3 pb-0.5 md:pb-2">Gesang</h3>
+				<!-- todo -->
+			</div>
 		</section>
 		<section use:reveal class="py-28">
 			<h2 class="h2 pb-1 md:pb-3">Nachbearbeitung</h2>
-			<p>Das Abmischen und verbessern des Songs</p>
+			<p>
+				Das Abmischen und verbessern des Songs (schiefer Hanno im Pre-Chorus (-> Schlagzeug),
+				Gitarre weniger Overdrive)
+			</p>
 		</section>
 	</div>
 </Scroller>

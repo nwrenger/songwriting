@@ -40,13 +40,17 @@
 	triggerBase="btn-icon preset-filled-secondary-500 fixed bottom-5 right-5 {disabled
 		? 'pointer-events-none opacity-40'
 		: ''}"
-	contentBase="card bg-surface-100-900 p-4 space-y-4 shadow-xl max-w-screen-sm"
+	contentBase="card bg-surface-100-900 p-4 space-y-4 shadow-xl max-w-screen-md"
 	backdropClasses="backdrop-blur-sm"
 >
 	{#snippet trigger()}<Fullscreen size="24" />{/snippet}
 	{#snippet content()}
-		<header class="flex justify-between">
+		<header class="">
 			<h2 class="h2">Bilderüberblick</h2>
+			<p>
+				Klick auf ein Bild, um es in einem neuen Tab zu öffnen und so dieses vergrößert sehen zu
+				können.
+			</p>
 		</header>
 		<div class="w-ful">
 			<div class="grid grid-cols-[auto_1fr_auto] gap-4 items-center">
@@ -65,12 +69,18 @@
 					class="snap-x snap-mandatory scroll-smooth flex gap-2 pb-2 overflow-x-auto"
 				>
 					{#each pictureContent as picture_src}
-						<img
+						<a
+							href={picture_src}
+							target="_blank"
 							class="rounded-container-token object-cover h-auto max-h-[300px] shrink-0"
-							src={picture_src}
-							alt={picture_src}
-							loading="lazy"
-						/>
+						>
+							<img
+								class="rounded-container-token object-cover h-auto max-h-[300px] shrink-0"
+								src={picture_src}
+								alt={picture_src}
+								loading="lazy"
+							/>
+						</a>
 					{/each}
 				</div>
 				<!-- Button-Right -->
