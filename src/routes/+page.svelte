@@ -7,6 +7,18 @@
 	let index: number = $state(0);
 	let offset: number = $state(0);
 	let progress: number = $state(0);
+
+	let indexTimed = $state(0);
+	let timer: ReturnType<typeof setTimeout>;
+
+	$effect(() => {
+		if (index !== indexTimed) {
+			clearTimeout(timer);
+			timer = setTimeout(() => {
+				indexTimed = index;
+			}, 350);
+		}
+	});
 </script>
 
 <svelte:head>
@@ -30,7 +42,7 @@
 		<div
 			class="absolute top-80 sm:top-60 md:top-54 w-full h-full flex flex-col items-center justify-center space-y-8"
 		>
-			{#if index == 0}
+			{#if indexTimed == 0}
 				<div
 					class="absolute top-20 left-8 music-note text-indigo-400"
 					in:fly|global={{ x: -300, duration: 1000, delay: 800 }}
@@ -66,7 +78,7 @@
 				>
 					<Mouse class="w-12 h-12 md:w-16 md:h-16" />
 				</div>
-			{:else if index == 1}
+			{:else if indexTimed == 1}
 				<img
 					src="before.jpg"
 					alt="before.jpg"
@@ -74,7 +86,7 @@
 					in:fade|global={{ duration: 800, delay: 800 }}
 					out:fly|global={{ duration: 800, x: 400 }}
 				/>
-			{:else if index == 2}
+			{:else if indexTimed == 2}
 				<img
 					src="ideas.jpg"
 					alt="ideas.jpg"
