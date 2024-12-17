@@ -246,8 +246,8 @@
 			</div>
 			<div>
 				<h3 class="h3 pb-0.5 md:pb-2">Schlagzeug</h3>
-				Das Schlagzeug war dabei stark orientiert an Nirvana (irgendein Song) ->> Musikalische Analyse mit Hörbeispielen (coolem
-				Component)
+				Das Schlagzeug war dabei stark orientiert an Nirvana (irgendein Song) ->> Musikalische Analyse
+				mit Hörbeispielen (coolem Component)
 			</div>
 			<div>
 				<h3 class="h3 pb-0.5 md:pb-2">Bass</h3>
