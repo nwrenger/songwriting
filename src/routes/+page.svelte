@@ -196,11 +196,11 @@
 			<p>
 				Wir haben direkt mit der Basis des Songs begonnen, den Instrumenten. Im Vergleich zu andren
 				Gruppen, welche erst angefangen hatten ihren Songtext zu schreiben, haben wir direkt damit
-				angefangen Songs der Band "Nirvana" anzuhören und ein Schlagzeug, Bass und E-Gitarre mit
-				Midi Werkzeugen von GarageBand zu erstellen. Dies war viel leichter als einen Songtext aus
-				dem Nichts zu schreiben, trotzdem hätte man sich da retrospektiv schon auf ein generelles
-				Thema einigen können, was ich aber nicht bereue, da dieser, sehr kreative Prozess, sehr viel
-				Spaß gemacht hat.
+				angefangen Songs der Band "Nirvana" anzuhören und ein Schlagzeug und Bass mit Midi
+				Werkzeugen von GarageBand zu erstellen. Dies war viel leichter als einen Songtext aus dem
+				Nichts zu schreiben, trotzdem hätte man sich da retrospektiv schon auf ein generelles Thema
+				einigen können, was ich aber nicht bereue, da dieser, sehr kreative Prozess, sehr viel Spaß
+				gemacht hat.
 			</p>
 			<br />
 			<p>
@@ -236,11 +236,12 @@
 		</section>
 		<section use:reveal class="py-28 space-y-5">
 			<div>
-				<h2 class="h2 pb-1 md:pb-3">Basis des Songs</h2>
+				<h2 class="h2 pb-1 md:pb-3">Analyse</h2>
 				<p>
-					Die oben beschriebene Basis bestand dabei aus einem Schlagzeug, Bass und E-Gitarre. Ich
-					habe hauptsächlich Schlagzeug und Bass geschrieben, deswegen werde ich im folgenden nur
-					das diese beiden musikalisch analysieren.
+					Ich habe überwiegend Schlagzeug- und Bassparts komponiert, während Hanno vor allem für die
+					E-Gitarre und die Liedtexte verantwortlich war. Aus diesem Grund werde ich im Folgenden
+					nur diese beiden Elemente – die bereits beschriebene Grundstruktur – musikalisch
+					analysieren. Diese Basis bestand aus Schlagzeug und Bass.
 				</p>
 			</div>
 			<div>
