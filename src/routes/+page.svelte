@@ -9,9 +9,18 @@
 	let progress: number = $state(0);
 </script>
 
+<svelte:head>
+	<title>Songwriting Portfolio</title>
+	<meta
+		name="description"
+		content="Hi, dies ist mein Songwriting Portfolio für den Song `crazed self`."
+	/>
+</svelte:head>
+
 <Scroller
 	top={0}
 	bottom={0.75}
+	threshold={0.4}
 	bind:index
 	bind:offset
 	bind:progress
@@ -24,35 +33,35 @@
 			{#if index == 0}
 				<div
 					class="absolute top-20 left-8 music-note text-indigo-400"
-					in:fly|global={{ x: -300, duration: 1000 }}
+					in:fly|global={{ x: -300, duration: 1000, delay: 800 }}
 					out:fade|global={{ duration: 800 }}
 				>
 					<Music class="w-12 h-12 md:w-16 md:h-16" />
 				</div>
 				<div
 					class="absolute top-16 right-16 music-note text-purple-400"
-					in:fly|global={{ x: 300, duration: 1000 }}
+					in:fly|global={{ x: 300, duration: 1000, delay: 800 }}
 					out:fade|global={{ duration: 800 }}
 				>
 					<Mic class="w-10 h-10 md:w-14 md:h-14" />
 				</div>
 				<div
 					class="absolute bottom-10 left-20 music-note text-yellow-400"
-					in:fly|global={{ x: -300, duration: 1000 }}
+					in:fly|global={{ x: -300, duration: 1000, delay: 800 }}
 					out:fade|global={{ duration: 800 }}
 				>
 					<PlayCircle class="w-10 h-10 md:w-14 md:h-14" />
 				</div>
 				<div
 					class="absolute bottom-20 right-12 music-note text-teal-400"
-					in:fly|global={{ x: 300, duration: 1000 }}
+					in:fly|global={{ x: 300, duration: 1000, delay: 800 }}
 					out:fade|global={{ duration: 800 }}
 				>
 					<Headphones class="w-12 h-12 md:w-16 md:h-16" />
 				</div>
 				<div
 					class="absolute"
-					in:scale|global={{ delay: 800, duration: 600 }}
+					in:scale|global={{ delay: 1600, duration: 600 }}
 					out:fade|global={{ duration: 800 }}
 				>
 					<Mouse class="w-12 h-12 md:w-16 md:h-16" />
@@ -84,11 +93,8 @@
 		</div>
 	</div>
 
-	<div
-		slot="foreground"
-		class="sr__hide pt-8 md:pt-12 pb-8 md:pb-12 max-w-5xl mx-auto overflow-x-hidden"
-	>
-		<section use:reveal class="pb-28">
+	<div slot="foreground" class="sr__hide max-w-5xl mx-auto overflow-x-hidden">
+		<section use:reveal class="pb-28 pt-8 md:pt-12">
 			<h1 class="h1 pb-3 md:pb-5">Songwriting Portfolio</h1>
 			<p>Willkommen auf meinem Portfolio zum Projekt "Schreib deinen Song - Songwriting"!</p>
 			<p>
@@ -142,7 +148,7 @@
 			</p>
 		</section>
 		<section use:reveal class="py-28">
-			<h2 class="h2 pb-1 md:pb-3">Arbeitsphase/Teamarbeit</h2>
+			<h2 class="h2 pb-1 md:pb-3">Teamarbeit</h2>
 			<p>Arbeitsphase = So wie wir gearbeitet haben</p>
 		</section>
 		<section use:reveal class="py-28 space-y-5">
@@ -173,7 +179,7 @@
 <style>
 	@keyframes float {
 		0% {
-			opacity: 0.2;
+			opacity: 1;
 		}
 		30% {
 			transform: translateY(0);
@@ -185,11 +191,12 @@
 		}
 		100% {
 			transform: translateY(0);
-			opacity: 0.2;
+			opacity: 1;
 		}
 	}
 
 	.music-note {
 		animation: float 3s ease-in-out infinite;
+		animation-delay: 1.8s;
 	}
 </style>
