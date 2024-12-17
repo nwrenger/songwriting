@@ -35,95 +35,77 @@
 		<div
 			class="absolute top-80 sm:top-60 md:top-54 w-full h-full flex flex-col items-center justify-center space-y-8"
 		>
-			{#if index == 0}
-				<div
-					class="absolute top-20 left-8 music-note text-indigo-400"
-					in:fly|global={{ x: -300, duration: 1000, delay: 800 }}
-					out:fade|global={{ duration: 800 }}
-				>
-					<Music class="w-12 h-12 md:w-16 md:h-16" />
+			{#key index}
+				<div transition:fade={{ duration: 600 }}>
+					{#if index == 0}
+						<div
+							class="absolute top-20 left-8 music-note text-indigo-400"
+							in:fly|global={{ x: -300, duration: 1000 }}
+						>
+							<Music class="w-12 h-12 md:w-16 md:h-16" />
+						</div>
+						<div
+							class="absolute top-16 right-16 music-note text-purple-400"
+							in:fly|global={{ x: 300, duration: 1000 }}
+						>
+							<Mic class="w-10 h-10 md:w-14 md:h-14" />
+						</div>
+						<div
+							class="absolute bottom-10 left-20 music-note text-yellow-400"
+							in:fly|global={{ x: -300, duration: 1000 }}
+						>
+							<PlayCircle class="w-10 h-10 md:w-14 md:h-14" />
+						</div>
+						<div
+							class="absolute bottom-20 right-12 music-note text-teal-400"
+							in:fly|global={{ x: 300, duration: 1000 }}
+						>
+							<Headphones class="w-12 h-12 md:w-16 md:h-16" />
+						</div>
+						<div class="absolute" in:scale|global={{ delay: 1600, duration: 600 }}>
+							<Mouse class="w-12 h-12 md:w-16 md:h-16" />
+						</div>
+					{:else if index == 1}
+						<img
+							src="before.jpg"
+							alt="before.jpg"
+							class="absolute top-14 right-0 w-auto h-32 md:h-52 dark:opacity-20 opacity-30 object-contain shadow-md"
+						/>
+					{:else if index == 2}
+						<img
+							src="ideas.jpg"
+							alt="ideas.jpg"
+							class="absolute top-14 left-0 w-auto h-32 md:h-52 dark:opacity-20 opacity-30 object-contain shadow-md"
+						/>
+						<img
+							src="trello.png"
+							alt="trello.png"
+							class="absolute top-20 right-0 w-auto h-32 md:h-52 dark:opacity-20 opacity-30 object-contain shadow-md"
+						/>
+					{:else if index == 3}
+						<img
+							src="final-songtext-2.png"
+							alt="final-songtext-2.png"
+							class="absolute top-48 right-12 w-auto h-32 md:h-52 dark:opacity-20 opacity-30 object-contain shadow-md"
+						/>
+						<img
+							src="final-songtext-1.png"
+							alt="final-songtext-1.png"
+							class="absolute top-0 right-0 w-auto h-32 md:h-52 dark:opacity-20 opacity-30 object-contain shadow-md"
+						/>
+						<img
+							src="songtext-1.jpeg"
+							alt="songtext-1.jpeg"
+							class="absolute top-32 left-20 w-auto h-32 md:h-52 dark:opacity-20 opacity-30 object-contain shadow-md"
+						/>
+						<img
+							src="songtext-2.jpeg"
+							alt="songtext-2.jpeg"
+							class="absolute top-[-20px] left-2 w-auto h-32 md:h-52 dark:opacity-20 opacity-30 object-contain shadow-md"
+						/>
+					{/if}
 				</div>
-				<div
-					class="absolute top-16 right-16 music-note text-purple-400"
-					in:fly|global={{ x: 300, duration: 1000, delay: 800 }}
-					out:fade|global={{ duration: 800 }}
-				>
-					<Mic class="w-10 h-10 md:w-14 md:h-14" />
-				</div>
-				<div
-					class="absolute bottom-10 left-20 music-note text-yellow-400"
-					in:fly|global={{ x: -300, duration: 1000, delay: 800 }}
-					out:fade|global={{ duration: 800 }}
-				>
-					<PlayCircle class="w-10 h-10 md:w-14 md:h-14" />
-				</div>
-				<div
-					class="absolute bottom-20 right-12 music-note text-teal-400"
-					in:fly|global={{ x: 300, duration: 1000, delay: 800 }}
-					out:fade|global={{ duration: 800 }}
-				>
-					<Headphones class="w-12 h-12 md:w-16 md:h-16" />
-				</div>
-				<div
-					class="absolute"
-					in:scale|global={{ delay: 1600, duration: 600 }}
-					out:fade|global={{ duration: 800 }}
-				>
-					<Mouse class="w-12 h-12 md:w-16 md:h-16" />
-				</div>
-			{:else if index == 1}
-				<img
-					src="before.jpg"
-					alt="before.jpg"
-					class="absolute top-14 right-0 w-auto h-32 md:h-52 dark:opacity-20 opacity-30 object-contain shadow-md"
-					in:fade|global={{ duration: 800, delay: 800 }}
-					out:fly|global={{ duration: 800, x: 400 }}
-				/>
-			{:else if index == 2}
-				<img
-					src="ideas.jpg"
-					alt="ideas.jpg"
-					class="absolute top-14 left-0 w-auto h-32 md:h-52 dark:opacity-20 opacity-30 object-contain shadow-md"
-					in:fade|global={{ duration: 800, delay: 800 }}
-					out:fly|global={{ duration: 800, x: -400 }}
-				/>
-				<img
-					src="trello.png"
-					alt="trello.png"
-					class="absolute top-20 right-0 w-auto h-32 md:h-52 dark:opacity-20 opacity-30 object-contain shadow-md"
-					in:fade|global={{ duration: 800, delay: 800 }}
-					out:fly|global={{ duration: 800, x: 400 }}
-				/>
-			{:else if index == 3}
-				<img
-					src="final-songtext-2.png"
-					alt="final-songtext-2.png"
-					class="absolute top-48 right-12 w-auto h-32 md:h-52 dark:opacity-20 opacity-30 object-contain shadow-md"
-					in:fade|global={{ duration: 800, delay: 800 }}
-					out:fly|global={{ duration: 800, x: 500 }}
-				/>
-				<img
-					src="final-songtext-1.png"
-					alt="final-songtext-1.png"
-					class="absolute top-0 right-0 w-auto h-32 md:h-52 dark:opacity-20 opacity-30 object-contain shadow-md"
-					in:fade|global={{ duration: 800, delay: 800 }}
-					out:fly|global={{ duration: 800, x: 400 }}
-				/>
-				<img
-					src="songtext-1.jpeg"
-					alt="songtext-1.jpeg"
-					class="absolute top-12 left-20 w-auto h-32 md:h-52 dark:opacity-20 opacity-30 object-contain shadow-md"
-					in:fade|global={{ duration: 800, delay: 800 }}
-					out:fly|global={{ duration: 800, x: -400 }}
-				/>
-				<img
-					src="songtext-2.jpeg"
-					alt="songtext-2.jpeg"
-					class="absolute top-[-120px] left-2 w-auto h-32 md:h-52 dark:opacity-20 opacity-30 object-contain shadow-md"
-					in:fade|global={{ duration: 800, delay: 800 }}
-					out:fly|global={{ duration: 800, x: -300 }}
-				/>
-			{/if}
+			{/key}
 		</div>
 	</div>
 
@@ -182,57 +164,63 @@
 				gearbeitet wurde.
 			</p>
 		</section>
-		<section use:reveal class="py-28">
-			<h2 class="h2 pb-1 md:pb-3">Teamarbeit und Ablauf</h2>
-			<p>
-				Unsere Teamarbeit war insgesamt immer sehr produktiv. Man kann den Prozess auch gut mit dem
-				englischen Ausdruck "Try and Error" beschreiben. Wir haben viel ausprobiert und sind dem
-				Endprodukt so unserem, auch von uns umsetzbaren Endprodukt immer näher gekommen. Dabei haben
-				wir auch viele Ideen verworfen, wir müssen ja nicht 5, sondern einen Song schreiben. Auch
-				war es für uns Anfangs schwierig Rhythmen und Melodien zu finden, die zusammenpassten und
-				nach unserem subjektiven Eindruck auch gut klangen.
-			</p>
-			<br />
-			<p>
-				Wir haben direkt mit der Basis des Songs begonnen, den Instrumenten. Im Vergleich zu andren
-				Gruppen, welche erst angefangen hatten ihren Songtext zu schreiben, haben wir direkt damit
-				angefangen Songs der Band "Nirvana" anzuhören und ein Schlagzeug und Bass mit Midi
-				Werkzeugen von GarageBand zu erstellen. Dies war viel leichter als einen Songtext aus dem
-				Nichts zu schreiben, trotzdem hätte man sich da retrospektiv schon auf ein generelles Thema
-				einigen können, was ich aber nicht bereue, da dieser, sehr kreative Prozess, sehr viel Spaß
-				gemacht hat.
-			</p>
-			<br />
-			<p>
-				Wir saßen dabei anfangs, als man noch dachte, man hätte viel Zeit, am Midi-Keyboard und hat
-				viel ausprobiert. Ab ca. Ende November/Anfang Dezember, als das generelle Gerüst des Songs
-				bestehend aus Schlagzeug, Bass und E-Gitarre (zu dem Zeitpunkt noch alles mit
-				Midi-Instrumenten umgesetzt) stand, teilten wir uns immer mehr auf. Z.B. beim Schreiben des
-				Songtextes schrieb jeder einzeln sich Texte beim auf und ab Hören des "Gerüsts" auf (siehe
-				Bild 1-2, Bild 3-4 ist der finale Text mit Titel). Nach ca. 20 minütigen Intervallen
-				tauschten wir uns aus. Der Gedanke war, dass wir schnell einen Text brauchten, wobei die
-				jeweilige Einzelarbeit sich als eine sehr gute Methode herausstellte. Das Resultat war ein,
-				auch Nirvana typisch, eher "verrückter" Text innerhalb von 90 Minuten (2 getrennten
-				Stunden), siehe z.B. "Paper Cuts", wobei über Missbrauch und mentale Qualen gesungen wird.
-				Dieser wurde zwar noch 2-3 mal angepasst, aber der generelle Inhalt war vergleichsweise zu
-				anderen Gruppen schnell fertig. Alleinig der Name des Songs, Coverbild und das Hinzufügen
-				einer weiteren Strophe von Hanno hat diesen Teil in die Länge gezogen. Ab diesen Zeitpunkt
-				waren wir schon mitten in den Aufnahmen und diese Sachen wurden in Stunden, wo keine
-				Aufnahmen gemacht wurde, erledigt.
-			</p>
-			<br />
-			<p>
-				In diesen Einzelarbeitsphasen war Rückmeldung an die jeweilig andere Person seines
-				Fortschritts ein a und o, wir wollten etwas erschaffen, was uns beiden gefällt, nicht NUR
-				Hanno oder NUR mir. Das hat zum Anderen auch, obwohl wir nun meistens Einzeln an etwas
-				arbeiteten, uns manchmal etwas verlangsamt. Auch, weil wir an dem Punkt auch noch nach
-				unserer "Try and Error" arbeitsweise nachgingen.
-			</p>
-			<br />
-			<p>
-				So ist es gekommen, dass wir die letzten Aufnahmen und das Abmischen bei mir zu Hause machen
-				mussten.
-			</p>
+		<section class="py-28">
+			<div use:reveal>
+				<h2 class="h2 pb-1 md:pb-3">Teamarbeit und Ablauf</h2>
+				<p>
+					Unsere Teamarbeit war insgesamt immer sehr produktiv. Man kann den Prozess auch gut mit
+					dem englischen Ausdruck "Try and Error" beschreiben. Wir haben viel ausprobiert und sind
+					dem Endprodukt so unserem, auch von uns umsetzbaren Endprodukt immer näher gekommen. Dabei
+					haben wir auch viele Ideen verworfen, wir müssen ja nicht 5, sondern einen Song schreiben.
+					Auch war es für uns Anfangs schwierig Rhythmen und Melodien zu finden, die zusammenpassten
+					und nach unserem subjektiven Eindruck auch gut klangen.
+				</p>
+				<br />
+				<p>
+					Wir haben direkt mit der Basis des Songs begonnen, den Instrumenten. Im Vergleich zu
+					andren Gruppen, welche erst angefangen hatten ihren Songtext zu schreiben, haben wir
+					direkt damit angefangen Songs der Band "Nirvana" anzuhören und ein Schlagzeug und Bass mit
+					Midi Werkzeugen von GarageBand zu erstellen. Dies war viel leichter als einen Songtext aus
+					dem Nichts zu schreiben, trotzdem hätte man sich da retrospektiv schon auf ein generelles
+					Thema einigen können, was ich aber nicht bereue, da dieser, sehr kreative Prozess, sehr
+					viel Spaß gemacht hat.
+				</p>
+				<br />
+			</div>
+			<div use:reveal>
+				<p>
+					Wir saßen dabei anfangs, als man noch dachte, man hätte viel Zeit, am Midi-Keyboard und
+					hat viel ausprobiert. Ab ca. Ende November/Anfang Dezember, als das generelle Gerüst des
+					Songs bestehend aus Schlagzeug, Bass und E-Gitarre (zu dem Zeitpunkt noch alles mit
+					Midi-Instrumenten umgesetzt) stand, teilten wir uns immer mehr auf. Z.B. beim Schreiben
+					des Songtextes schrieb jeder einzeln sich Texte beim auf und ab Hören des "Gerüsts" auf
+					(siehe Bild 1-2, Bild 3-4 ist der finale Text mit Titel). Nach ca. 20 minütigen
+					Intervallen tauschten wir uns aus. Der Gedanke war, dass wir schnell einen Text brauchten,
+					wobei die jeweilige Einzelarbeit sich als eine sehr gute Methode herausstellte. Das
+					Resultat war ein, auch Nirvana typisch, eher "verrückter" Text innerhalb von 90 Minuten (2
+					getrennten Stunden), siehe z.B. "Paper Cuts", wobei über Missbrauch und mentale Qualen
+					gesungen wird. Dieser wurde zwar noch 2-3 mal angepasst, aber der generelle Inhalt war
+					vergleichsweise zu anderen Gruppen schnell fertig. Alleinig der Name des Songs, Coverbild
+					und das Hinzufügen einer weiteren Strophe von Hanno hat diesen Teil in die Länge gezogen.
+					Ab diesen Zeitpunkt waren wir schon mitten in den Aufnahmen und diese Sachen wurden in
+					Stunden, wo keine Aufnahmen gemacht wurde, erledigt.
+				</p>
+				<br />
+			</div>
+			<div use:reveal>
+				<p>
+					In diesen Einzelarbeitsphasen war Rückmeldung an die jeweilig andere Person seines
+					Fortschritts ein a und o, wir wollten etwas erschaffen, was uns beiden gefällt, nicht NUR
+					Hanno oder NUR mir. Das hat zum Anderen auch, obwohl wir nun meistens Einzeln an etwas
+					arbeiteten, uns manchmal etwas verlangsamt. Auch, weil wir an dem Punkt auch noch nach
+					unserer "Try and Error" arbeitsweise nachgingen.
+				</p>
+				<br />
+				<p>
+					So ist es gekommen, dass wir die letzten Aufnahmen und das Abmischen bei mir zu Hause
+					machen mussten.
+				</p>
+			</div>
 		</section>
 		<section use:reveal class="py-28 space-y-5">
 			<div>
