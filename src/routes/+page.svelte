@@ -239,14 +239,14 @@
 				<h2 class="h2 pb-1 md:pb-3">Analyse</h2>
 				<p>
 					Ich habe überwiegend Schlagzeug- und Bassparts komponiert, während Hanno vor allem für die
-					E-Gitarre und die Liedtexte verantwortlich war. Aus diesem Grund werde ich im Folgenden
-					nur diese beiden Elemente – die bereits beschriebene Grundstruktur – musikalisch
-					analysieren. Diese Basis bestand aus Schlagzeug und Bass.
+					E-Gitarre und den Songtext verantwortlich war. Aus diesem Grund werde ich im Folgenden nur
+					diese beiden Elemente – die bereits beschriebene Grundstruktur – musikalisch analysieren.
+					Diese Basis bestand aus Schlagzeug und Bass.
 				</p>
 			</div>
 			<div>
 				<h3 class="h3 pb-0.5 md:pb-2">Schlagzeug</h3>
-				Das Schlagzeug war dabei stark orientiert an ->> Musikalische Analyse mit Hörbeispielen (coolem
+				Das Schlagzeug war dabei stark orientiert an Nirvana (irgendein Song) ->> Musikalische Analyse mit Hörbeispielen (coolem
 				Component)
 			</div>
 			<div>
