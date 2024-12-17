@@ -213,12 +213,12 @@
 				tauschten wir uns aus. Der Gedanke war, dass wir schnell einen Text brauchten, wobei die
 				jeweilige Einzelarbeit sich als eine sehr gute Methode herausstellte. Das Resultat war ein,
 				auch Nirvana typisch, eher "verrückter" Text innerhalb von 90 Minuten (2 getrennten
-				Stunden), siehe z.B. "Paper Cuts", wobei über Missbrauch und mentale Qualen singt. Dieser
-				wurde zwar noch 2-3 mal angepasst, aber der generelle Inhalt war vergleichsweise zu anderen
-				Gruppen schnell fertig. Alleinig der Name des Songs und das Hinzufügen einer weiteren
-				Strophe von Hanno hat diesen Teil in die Länge gezogen. Ab diesen Zeitpunkt waren wir schon
-				mitten in den Aufnahmen drinnen und wurden in Stunden, wo keine Aufnahmen gemacht wurde,
-				erledigt.
+				Stunden), siehe z.B. "Paper Cuts", wobei über Missbrauch und mentale Qualen gesungen wird.
+				Dieser wurde zwar noch 2-3 mal angepasst, aber der generelle Inhalt war vergleichsweise zu
+				anderen Gruppen schnell fertig. Alleinig der Name des Songs, Coverbild und das Hinzufügen
+				einer weiteren Strophe von Hanno hat diesen Teil in die Länge gezogen. Ab diesen Zeitpunkt
+				waren wir schon mitten in den Aufnahmen und diese Sachen wurden in Stunden, wo keine
+				Aufnahmen gemacht wurde, erledigt.
 			</p>
 			<br />
 			<p>
