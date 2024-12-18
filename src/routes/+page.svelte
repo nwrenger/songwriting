@@ -254,7 +254,8 @@
 			</p>
 
 			<p>
-				Dieser startet mit einem Intro, welches von Takt 1 bis Takt 2 Zz. 3 aus 8-tel h's, hier eine Hi-Hat, besteht. 
+				Dieser startet mit einem Intro, welches von Takt 1 bis Takt 2 Zz. 3 aus 8-tel h's, hier eine
+				Hi-Hat, besteht.
 			</p>
 
 			<br />
