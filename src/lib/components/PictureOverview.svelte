@@ -147,11 +147,11 @@
 					</div>
 				{/if}
 
-				<div class="overflow-hidden">
+				<div class="flex items-center justify-center h-full overflow-hidden">
 					{#if currentImage}
 						<a
 							href={currentImage}
-							class="cursor-zoom-in"
+							class="cursor-zoom-in flex items-center justify-center w-full h-full"
 							target="_blank"
 							title="Bild in neuen Tab öffnen"
 						>
@@ -159,6 +159,7 @@
 								src={currentImage}
 								alt={currentImage}
 								class="max-w-full max-h-full object-contain"
+								loading="lazy"
 							/>
 						</a>
 					{/if}
