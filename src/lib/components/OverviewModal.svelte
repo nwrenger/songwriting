@@ -40,18 +40,18 @@
 		height = Math.min((innerHeight || height) - 20, height);
 	});
 
-	function onMouseDown(e: MouseEvent) {
+	function onDown(e: PointerEvent) {
 		resizing = true;
 		startX = e.clientX;
 		startY = e.clientY;
 		startWidth = width;
 		startHeight = height;
 		document.body.style.cursor = 'nwse-resize';
-		window.addEventListener('mousemove', onMouseMove);
-		window.addEventListener('mouseup', onMouseUp);
+		window.addEventListener('pointermove', onMove);
+		window.addEventListener('pointerup', onUp);
 	}
 
-	function onMouseMove(e: MouseEvent) {
+	function onMove(e: PointerEvent) {
 		if (!resizing) return;
 
 		const dx = e.clientX - startX;
@@ -64,11 +64,11 @@
 		height = Math.max(minHeight, newHeight);
 	}
 
-	function onMouseUp() {
+	function onUp() {
 		resizing = false;
 		document.body.style.cursor = '';
-		window.removeEventListener('mousemove', onMouseMove);
-		window.removeEventListener('mouseup', onMouseUp);
+		window.removeEventListener('pointermove', onMove);
+		window.removeEventListener('pointerup', onUp);
 	}
 
 	function toggleView() {
@@ -101,13 +101,13 @@
 			</button>
 		{:else}
 			<div
-				class="fixed bottom-4 right-4 card bg-surface-100-900 border-[1px] border-surface-200-800 p-4 shadow-xl rounded flex flex-col gap-4"
+				class="fixed touch-none bottom-4 right-4 card bg-surface-100-900 border-[1px] border-surface-200-800 p-4 shadow-xl rounded flex flex-col gap-4"
 				style="width: {width}px; height: {height}px; min-width: {minWidth}px; min-height: {minHeight}px;"
 			>
 				<button
-					class="absolute top-0 left-0 w-4 h-4 bg-surface-200-800"
+					class="absolute top-0 left-0 w-5 h-5 bg-surface-200-800 select-none"
 					style="border-bottom-right-radius:4px; cursor:nwse-resize;"
-					onmousedown={onMouseDown}
+					onpointerdown={onDown}
 					title="Drag to resize"
 					aria-label="Drag to resize"
 				></button>

@@ -72,7 +72,7 @@
 		console.error('Failed to load PDF:', event.detail);
 	}
 
-	function onMouseDown(e: MouseEvent) {
+	function onDown(e: PointerEvent) {
 		// styles for the cursor
 		document.body.style.cursor = 'nesw-resize';
 		resizing = true;
@@ -80,11 +80,11 @@
 		startY = e.clientY;
 		startWidth = width;
 		startHeight = height;
-		window.addEventListener('mousemove', onMouseMove);
-		window.addEventListener('mouseup', onMouseUp);
+		window.addEventListener('pointermove', onMove);
+		window.addEventListener('pointerup', onUp);
 	}
 
-	function onMouseMove(e: MouseEvent) {
+	function onMove(e: PointerEvent) {
 		if (!resizing) return;
 
 		const dx = e.clientX - startX;
@@ -98,12 +98,12 @@
 		}
 	}
 
-	function onMouseUp() {
+	function onUp() {
 		// styles for the cursor
 		document.body.style.cursor = '';
 		resizing = false;
-		window.removeEventListener('mousemove', onMouseMove);
-		window.removeEventListener('mouseup', onMouseUp);
+		window.removeEventListener('pointermove', onMove);
+		window.removeEventListener('pointerup', onUp);
 	}
 
 	function togglePdfViewer() {
@@ -127,12 +127,12 @@
 				</button>
 			{:else}
 				<div
-					class="fixed bottom-4 left-4 card preset-filled-surface-100-900 border-[1px] border-surface-200-800 p-4 text-center shadow-lg rounded overflow-hidden flex flex-col gap-4"
+					class="fixed touch-none bottom-4 left-4 card preset-filled-surface-100-900 border-[1px] border-surface-200-800 p-4 text-center shadow-lg rounded overflow-hidden flex flex-col gap-4"
 					style="width: {width}px; height: {height}px; min-width:200px; min-height:200px;"
 				>
 					<button
-						class="absolute top-0 right-0 w-4 h-4 bg-surface-200-800 select-none"
-						onmousedown={onMouseDown}
+						class="absolute top-0 right-0 w-5 h-5 bg-surface-200-800 select-none"
+						onpointerdown={onDown}
 						style="border-bottom-left-radius: 4px; cursor:nesw-resize;"
 						title="Drag to resize"
 						aria-label="Drag to resize"
