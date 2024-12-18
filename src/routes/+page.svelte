@@ -36,77 +36,37 @@
 		<div
 			class="absolute top-80 sm:top-60 md:top-54 w-full h-full flex flex-col items-center justify-center space-y-8"
 		>
-			{#key index}
+			{#if index == 0}
 				<div transition:fade={{ duration: 600 }}>
-					{#if index == 0}
-						<div
-							class="absolute top-20 left-8 music-note text-indigo-400"
-							in:fly|global={{ x: -300, duration: 1000 }}
-						>
-							<Music class="w-12 h-12 md:w-16 md:h-16" />
-						</div>
-						<div
-							class="absolute top-16 right-16 music-note text-purple-400"
-							in:fly|global={{ x: 300, duration: 1000 }}
-						>
-							<Mic class="w-10 h-10 md:w-14 md:h-14" />
-						</div>
-						<div
-							class="absolute bottom-10 left-20 music-note text-yellow-400"
-							in:fly|global={{ x: -300, duration: 1000 }}
-						>
-							<PlayCircle class="w-10 h-10 md:w-14 md:h-14" />
-						</div>
-						<div
-							class="absolute bottom-20 right-12 music-note text-teal-400"
-							in:fly|global={{ x: 300, duration: 1000 }}
-						>
-							<Headphones class="w-12 h-12 md:w-16 md:h-16" />
-						</div>
-						<div class="absolute" in:scale|global={{ delay: 1600, duration: 600 }}>
-							<Mouse class="w-12 h-12 md:w-16 md:h-16 dark:text-gray-500 text-gray-300" />
-						</div>
-					{:else if index == 1}
-						<img
-							src="before.jpg"
-							alt="before.jpg"
-							class="absolute top-14 right-0 w-auto h-32 md:h-52 dark:opacity-20 opacity-30 object-contain shadow-md"
-						/>
-					{:else if index == 2}
-						<img
-							src="ideas.jpg"
-							alt="ideas.jpg"
-							class="absolute top-14 left-0 w-auto h-32 md:h-52 dark:opacity-20 opacity-30 object-contain shadow-md"
-						/>
-						<img
-							src="trello.png"
-							alt="trello.png"
-							class="absolute top-20 right-0 w-auto h-32 md:h-52 dark:opacity-20 opacity-30 object-contain shadow-md"
-						/>
-					{:else if index == 3}
-						<img
-							src="final-songtext-2.png"
-							alt="final-songtext-2.png"
-							class="absolute top-48 right-12 w-auto h-32 md:h-52 dark:opacity-20 opacity-30 object-contain shadow-md"
-						/>
-						<img
-							src="final-songtext-1.png"
-							alt="final-songtext-1.png"
-							class="absolute top-0 right-0 w-auto h-32 md:h-52 dark:opacity-20 opacity-30 object-contain shadow-md"
-						/>
-						<img
-							src="songtext-1.jpeg"
-							alt="songtext-1.jpeg"
-							class="absolute top-32 left-20 w-auto h-32 md:h-52 dark:opacity-20 opacity-30 object-contain shadow-md"
-						/>
-						<img
-							src="songtext-2.jpeg"
-							alt="songtext-2.jpeg"
-							class="absolute top-[-20px] left-2 w-auto h-32 md:h-52 dark:opacity-20 opacity-30 object-contain shadow-md"
-						/>
-					{/if}
+					<div
+						class="absolute top-20 left-8 music-note opacity-50 text-indigo-400"
+						in:fly|global={{ x: -300, duration: 1000 }}
+					>
+						<Music class="w-12 h-12 md:w-16 md:h-16" />
+					</div>
+					<div
+						class="absolute top-16 right-16 music-note opacity-50 text-purple-400"
+						in:fly|global={{ x: 300, duration: 1000 }}
+					>
+						<Mic class="w-10 h-10 md:w-14 md:h-14" />
+					</div>
+					<div
+						class="absolute bottom-10 left-20 music-note opacity-50 text-yellow-400"
+						in:fly|global={{ x: -300, duration: 1000 }}
+					>
+						<PlayCircle class="w-10 h-10 md:w-14 md:h-14" />
+					</div>
+					<div
+						class="absolute bottom-20 right-12 music-note opacity-50 text-teal-400"
+						in:fly|global={{ x: 300, duration: 1000 }}
+					>
+						<Headphones class="w-12 h-12 md:w-16 md:h-16" />
+					</div>
+					<div class="absolute" in:scale|global={{ delay: 1600, duration: 600 }}>
+						<Mouse class="w-12 h-12 md:w-16 md:h-16 dark:text-gray-500 text-gray-300" />
+					</div>
 				</div>
-			{/key}
+			{/if}
 		</div>
 	</div>
 
@@ -120,14 +80,14 @@
 				Sie einfach dem Verlauf nach unten, um alle Entwicklungsschritte nachzuvollziehen.
 			</p>
 			<p>
-				Unten rechts befindet sich ein Button (aktuell noch unsichtbar), mit dem Sie die
-				Hintergründe genauer betrachten können. Klicken Sie auf das angezeigte Bild, um es in einem
-				neuen Tab zu öffnen. Ebenso gibt es unten links einen PDF-Viewer (ebenfalls derzeit
-				unsichtbar), der auf die gleiche Weise funktioniert.
+				Unten rechts befindet sich eine Bilderübersicht. Klicken Sie auf das angezeigte Bild, um es
+				in einem neuen Tab zu öffnen. Sie können die Bilderübersicht auch ausblenden, indem Sie auf
+				den Button mit dem durchgestrichenen Auge klicken. Ebenso gibt es unten links einen
+				PDF-Viewer (ebenfalls derzeit unsichtbar), der auf die gleiche Weise funktioniert.
 			</p>
 			<p>
 				Außerdem finden Sie in den jeweiligen oberen und unteren Ecken der Bild- und PDF-Viewer ein
-				Draghandle, mit dem sich das angezeigte Fenster ganz nach Ihren Wünschen vergrößern oder
+				"Draghandle", mit dem sich das angezeigte Fenster ganz nach Ihren Wünschen vergrößern oder
 				verkleinern lässt. Viel Freude beim Erkunden!
 			</p>
 		</section>
@@ -298,7 +258,7 @@
 <style>
 	@keyframes float {
 		0% {
-			opacity: 1;
+			opacity: 0.5;
 		}
 		30% {
 			transform: translateY(0);
@@ -306,11 +266,11 @@
 		}
 		50% {
 			transform: translateY(-20px);
-			opacity: 0.8;
+			opacity: 0.65;
 		}
 		100% {
 			transform: translateY(0);
-			opacity: 1;
+			opacity: 0.5;
 		}
 	}
 

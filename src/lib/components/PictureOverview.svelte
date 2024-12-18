@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { ArrowLeft, ArrowRight, Fullscreen, EyeOff, ExternalLink } from 'lucide-svelte';
+	import { ArrowLeft, ArrowRight, Fullscreen, EyeOff } from 'lucide-svelte';
 	import { fade } from 'svelte/transition';
 
 	interface Props {
@@ -8,7 +8,7 @@
 
 	let { pictureContent = [] }: Props = $props();
 
-	let showImages = $state(false);
+	let showImages = $state(true);
 
 	let innerHeight: number | undefined = $state();
 	let innerWidth: number | undefined = $state();
@@ -147,7 +147,7 @@
 					</div>
 				{/if}
 
-				<div class="flex overflow-hidden">
+				<div class="overflow-hidden">
 					{#if currentImage}
 						<a
 							href={currentImage}
@@ -155,7 +155,11 @@
 							target="_blank"
 							title="Bild in neuen Tab öffnen"
 						>
-							<img src={currentImage} alt={currentImage} class="max-w-full object-contain" />
+							<img
+								src={currentImage}
+								alt={currentImage}
+								class="max-w-full max-h-full object-contain"
+							/>
 						</a>
 					{/if}
 				</div>

@@ -70,7 +70,7 @@
 
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import OverviewModel from './OverviewModal.svelte';
+	import PictureOverview from './PictureOverview.svelte';
 	import PdfOverview from './PdfOverview.svelte';
 
 	// config
@@ -193,7 +193,7 @@
 
 	<svelte-scroller-foreground bind:this={foreground}>
 		<slot name="foreground"></slot>
-		<OverviewModel pictureContent={overviewContent[index]} />
+		<PictureOverview pictureContent={overviewContent[index]} />
 		<PdfOverview pdfContent={pdfContent[index]} />
 	</svelte-scroller-foreground>
 </svelte-scroller-outer>

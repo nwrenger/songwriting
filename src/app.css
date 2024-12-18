@@ -16,4 +16,7 @@
 		background-size: cover;
 		overflow-x: hidden;
 	}
+	p {
+		@apply text-lg;
+	}
 }

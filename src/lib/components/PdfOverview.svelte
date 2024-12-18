@@ -21,8 +21,8 @@
 	let innerHeight: number | undefined = $state();
 	let innerWidth: number | undefined = $state();
 
-	let width = $state(300);
-	let height = $state(300);
+	let width = $state(400);
+	let height = $state(400);
 	const minWidth = 200;
 	const minHeight = 200;
 	const aspectRatio: number = 210 / 297;
