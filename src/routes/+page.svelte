@@ -245,12 +245,12 @@
 		<section use:reveal class="pb-5">
 			<h3 class="h3 pb-0.5 md:pb-2">Schlagzeug</h3>
 			<p>
-				Unser Song selber ist dabei in einem Tempo von 111 bpm (grüne Markierung), ein eher
-				langsameres Tempo im Vergleich zu anderen Nirvana Songs, welche in dem Bereich von 114 bis
-				134 bpm liegen. Dies passt jedoch besser zum Inhalt des Songs. Zudem ist der Song in einem
-				4/4-Takt und G-Dur verfasst. Für das Schlagzeug ist die Tonart irrelevant. Bitte beachten
-				Sie, dass die Noten von GarageBand exportiert sind und GarageBand digitale Schlagzeuge mit
-				Notenwerten beschreibt.
+				Unser Song selber ist dabei in einem Tempo von 111 bpm (grüne Markierung), ein typisches
+				Tempo bei dem Vergleich zu anderen Nirvana Songs, welche in dem Bereich von 92 bis 138 bpm
+				liegen. Dies passt jedoch besser zum Inhalt des Songs. Zudem ist der Song in einem 4/4-Takt
+				und G-Dur verfasst. Für das Schlagzeug ist die Tonart irrelevant. Bitte beachten Sie, dass
+				die Noten von GarageBand exportiert sind und GarageBand digitale Schlagzeuge mit Notenwerten
+				beschreibt.
 			</p>
 
 			<p>
