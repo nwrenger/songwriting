@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { Modal } from '@skeletonlabs/skeleton-svelte';
-	import { ArrowLeft, ArrowRight, Fullscreen } from 'lucide-svelte';
+	import { ArrowLeft, ArrowRight, Fullscreen, EyeOff, ExternalLink } from 'lucide-svelte';
+	import { fade } from 'svelte/transition';
 
 	interface Props {
 		pictureContent: string[];
@@ -8,94 +8,158 @@
 
 	let { pictureContent = [] }: Props = $props();
 
-	let openState = $state(false);
-	let elemMovies: HTMLDivElement;
-	let disabled = $derived(pictureContent.length == 0);
+	let showImages = $state(false);
 
-	function modalClose() {
-		openState = false;
+	let innerHeight: number | undefined = $state();
+	let innerWidth: number | undefined = $state();
+
+	let pictureIndex = $state(0);
+	let totalImages = $derived(pictureContent.length);
+	let currentImage = $derived(pictureContent[pictureIndex]);
+
+	let width = $state(600);
+	let height = $state(400);
+	const minWidth = 200;
+	const minHeight = 200;
+
+	let resizing = false;
+	let startX = 0;
+	let startY = 0;
+	let startWidth = 0;
+	let startHeight = 0;
+
+	$effect(() => {
+		if (pictureContent) pictureIndex = 0;
+	});
+
+	$effect(() => {
+		width = Math.min((innerWidth || width) - 16, width);
+	});
+
+	$effect(() => {
+		height = Math.min((innerHeight || height) - 20, height);
+	});
+
+	function onMouseDown(e: MouseEvent) {
+		resizing = true;
+		startX = e.clientX;
+		startY = e.clientY;
+		startWidth = width;
+		startHeight = height;
+		document.body.style.cursor = 'nwse-resize';
+		window.addEventListener('mousemove', onMouseMove);
+		window.addEventListener('mouseup', onMouseUp);
 	}
 
-	/** Handles the left scroll event. */
-	function multiColumnLeft() {
-		if (!elemMovies) return;
-		let x = elemMovies.scrollWidth;
-		if (elemMovies.scrollLeft !== 0) x = elemMovies.scrollLeft - elemMovies.clientWidth;
-		elemMovies.scroll(x, 0);
+	function onMouseMove(e: MouseEvent) {
+		if (!resizing) return;
+
+		const dx = e.clientX - startX;
+		const dy = e.clientY - startY;
+
+		const newWidth = startWidth - dx;
+		const newHeight = startHeight - dy;
+
+		width = Math.max(minWidth, newWidth);
+		height = Math.max(minHeight, newHeight);
 	}
 
-	/** Handles the right scroll event. */
-	function multiColumnRight() {
-		if (!elemMovies) return;
-		let x = 0;
-		// -1 is used because different browsers use different methods to round scrollWidth pixels.
-		if (elemMovies.scrollLeft < elemMovies.scrollWidth - elemMovies.clientWidth - 1)
-			x = elemMovies.scrollLeft + elemMovies.clientWidth;
-		elemMovies.scroll(x, 0);
+	function onMouseUp() {
+		resizing = false;
+		document.body.style.cursor = '';
+		window.removeEventListener('mousemove', onMouseMove);
+		window.removeEventListener('mouseup', onMouseUp);
+	}
+
+	function toggleView() {
+		showImages = !showImages;
+	}
+
+	function nextImage() {
+		if (totalImages < 2) return;
+		pictureIndex = (pictureIndex + 1) % totalImages;
+	}
+
+	function prevImage() {
+		if (totalImages < 2) return;
+		pictureIndex = (pictureIndex - 1 + totalImages) % totalImages;
 	}
 </script>
 
-<Modal
-	bind:open={openState}
-	triggerBase="btn-icon preset-filled-secondary-500 fixed bottom-5 right-5 {disabled
-		? 'pointer-events-none opacity-40'
-		: ''}"
-	contentBase="card bg-surface-100-900 p-4 space-y-4 shadow-xl max-w-screen-md"
-	backdropClasses="backdrop-blur-sm"
->
-	{#snippet trigger()}<Fullscreen size="24" />{/snippet}
-	{#snippet content()}
-		<header class="">
-			<h2 class="h2">Bilderüberblick</h2>
-			<p>
-				Klick auf ein Bild, um es in einem neuen Tab zu öffnen und so dieses vergrößert sehen zu
-				können.
-			</p>
-		</header>
-		<div class="w-ful">
-			<div class="grid grid-cols-[auto_1fr_auto] gap-4 items-center">
-				<!-- Button: Left -->
+<svelte:window bind:innerWidth bind:innerHeight />
+
+{#if pictureContent.length > 0}
+	<div transition:fade|global={{ duration: 600 }}>
+		{#if !showImages}
+			<button
+				type="button"
+				class="fixed bottom-4 right-4 btn-icon preset-filled-secondary-500"
+				onclick={toggleView}
+				title="Zeige Bilderübersicht"
+			>
+				<Fullscreen size="24" />
+			</button>
+		{:else}
+			<div
+				class="fixed bottom-4 right-4 card bg-surface-100-900 border-[1px] border-surface-200-800 p-4 shadow-xl rounded flex flex-col gap-4"
+				style="width: {width}px; height: {height}px; min-width: {minWidth}px; min-height: {minHeight}px;"
+			>
+				<button
+					class="absolute top-0 left-0 w-4 h-4 bg-surface-200-800"
+					style="border-bottom-right-radius:4px; cursor:nwse-resize;"
+					onmousedown={onMouseDown}
+					title="Drag to resize"
+					aria-label="Drag to resize"
+				></button>
+
 				<button
 					type="button"
-					class="btn-icon preset-filled"
-					data-multi-column-left
-					onclick={multiColumnLeft}
+					class="absolute top-1 right-1 btn-icon preset-tonal-surface"
+					onclick={toggleView}
+					title="Verstecke Bilderübersicht"
 				>
-					<ArrowLeft size={16} />
+					<EyeOff />
 				</button>
-				<!-- Carousel -->
-				<div
-					bind:this={elemMovies}
-					class="snap-x snap-mandatory scroll-smooth flex gap-2 pb-2 overflow-x-auto"
-				>
-					{#each pictureContent as picture_src}
-						<a
-							href={picture_src}
-							target="_blank"
-							class="rounded-container-token object-cover h-auto max-h-[300px] shrink-0"
+
+				{#if totalImages > 1}
+					<div class="flex items-center justify-center gap-4">
+						<button
+							type="button"
+							class="btn-icon preset-filled"
+							onclick={prevImage}
+							title="Vorheriges Bild"
 						>
-							<img
-								class="rounded-container-token object-cover h-auto max-h-[300px] shrink-0"
-								src={picture_src}
-								alt={picture_src}
-								loading="lazy"
-							/>
+							<ArrowLeft size={16} />
+						</button>
+						<span class="text-sm">{pictureIndex + 1}/{totalImages}</span>
+						<button
+							type="button"
+							class="btn-icon preset-filled"
+							onclick={nextImage}
+							title="Nächstes Bild"
+						>
+							<ArrowRight size={16} />
+						</button>
+					</div>
+				{:else}
+					<div class="flex items-center justify-center gap-4">
+						<span class="text-sm">1/1</span>
+					</div>
+				{/if}
+
+				<div class="flex overflow-hidden">
+					{#if currentImage}
+						<a
+							href={currentImage}
+							class="cursor-zoom-in"
+							target="_blank"
+							title="Bild in neuen Tab öffnen"
+						>
+							<img src={currentImage} alt={currentImage} class="max-w-full object-contain" />
 						</a>
-					{/each}
+					{/if}
 				</div>
-				<!-- Button-Right -->
-				<button
-					type="button"
-					class="btn-icon preset-filled"
-					data-multi-column-right
-					onclick={multiColumnRight}
-				>
-					<ArrowRight size={16} />
-				</button>
 			</div>
-		</div>
-		<footer class="flex justify-end gap-4">
-			<button type="button" class="btn preset-tonal" onclick={modalClose}>Schließen</button>
-		</footer>
-	{/snippet}
-</Modal>
+		{/if}
+	</div>
+{/if}

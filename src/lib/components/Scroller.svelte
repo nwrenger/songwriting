@@ -71,6 +71,7 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import OverviewModel from './OverviewModal.svelte';
+	import PdfOverview from './PdfOverview.svelte';
 
 	// config
 	export let top: number = 0;
@@ -79,6 +80,7 @@
 	export let query: string = 'section';
 	export let parallax: boolean = false;
 	export let overviewContent: string[][] = [];
+	export let pdfContent: (string | undefined)[] = [];
 
 	// bindings
 	export let index: number = 0;
@@ -192,6 +194,7 @@
 	<svelte-scroller-foreground bind:this={foreground}>
 		<slot name="foreground"></slot>
 		<OverviewModel pictureContent={overviewContent[index]} />
+		<PdfOverview pdfContent={pdfContent[index]} />
 	</svelte-scroller-foreground>
 </svelte-scroller-outer>
 

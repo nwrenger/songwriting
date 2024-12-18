@@ -30,6 +30,7 @@
 		['ideas.jpg', 'trello.png'],
 		['songtext-1.jpeg', 'songtext-2.jpeg', 'final-songtext-1.png', 'final-songtext-2.png']
 	]}
+	pdfContent={[undefined, undefined, undefined, undefined, undefined, 'Schlagzeug.pdf', 'todo.pdf']}
 >
 	<div slot="background" class="relative h-full max-w-5xl mx-auto">
 		<div
@@ -63,7 +64,7 @@
 							<Headphones class="w-12 h-12 md:w-16 md:h-16" />
 						</div>
 						<div class="absolute" in:scale|global={{ delay: 1600, duration: 600 }}>
-							<Mouse class="w-12 h-12 md:w-16 md:h-16" />
+							<Mouse class="w-12 h-12 md:w-16 md:h-16 dark:text-gray-500 text-gray-300" />
 						</div>
 					{:else if index == 1}
 						<img
@@ -112,11 +113,22 @@
 	<div slot="foreground" class="sr__hide max-w-5xl mx-auto overflow-x-hidden">
 		<section use:reveal class="pb-28 pt-8 md:pt-12">
 			<h1 class="h1 pb-3 md:pb-5">Songwriting Portfolio</h1>
-			<p>Willkommen auf meinem Portfolio zum Projekt "Schreib deinen Song - Songwriting"!</p>
+			<p>Willkommen auf meinem Portfolio zum Projekt „Schreib deinen Song – Songwriting“!</p>
 			<p>
-				Diese Webseite wird den Leser von der ursprünglichen Ideenfindung bis hin zum finalen
-				Abmischen des Songs führen und reflektieren. Dafür muss nur gescrollt werden. Unten rechts
-				ist ein Button, um die Sachen auf dem aktuellen Hintergrund genau an zu schauen! Viel Spaß!
+				Auf dieser Webseite begleite ich Sie Schritt für Schritt durch den gesamten
+				Entstehungsprozess meines Songs – von den ersten Ideen bis hin zum finalen Abmischen. Folgen
+				Sie einfach dem Verlauf nach unten, um alle Entwicklungsschritte nachzuvollziehen.
+			</p>
+			<p>
+				Unten rechts befindet sich ein Button (aktuell noch unsichtbar), mit dem Sie die
+				Hintergründe genauer betrachten können. Klicken Sie auf das angezeigte Bild, um es in einem
+				neuen Tab zu öffnen. Ebenso gibt es unten links einen PDF-Viewer (ebenfalls derzeit
+				unsichtbar), der auf die gleiche Weise funktioniert.
+			</p>
+			<p>
+				Außerdem finden Sie in den jeweiligen oberen und unteren Ecken der Bild- und PDF-Viewer ein
+				Draghandle, mit dem sich das angezeigte Fenster ganz nach Ihren Wünschen vergrößern oder
+				verkleinern lässt. Viel Freude beim Erkunden!
 			</p>
 		</section>
 
@@ -170,10 +182,10 @@
 				<p>
 					Unsere Teamarbeit war insgesamt immer sehr produktiv. Man kann den Prozess auch gut mit
 					dem englischen Ausdruck "Try and Error" beschreiben. Wir haben viel ausprobiert und sind
-					dem Endprodukt so unserem, auch von uns umsetzbaren Endprodukt immer näher gekommen. Dabei
-					haben wir auch viele Ideen verworfen, wir müssen ja nicht 5, sondern einen Song schreiben.
-					Auch war es für uns Anfangs schwierig Rhythmen und Melodien zu finden, die zusammenpassten
-					und nach unserem subjektiven Eindruck auch gut klangen.
+					so einem auch von uns umsetzbaren Endprodukt immer näher gekommen. Dabei haben wir auch
+					viele Ideen verworfen, wir müssen ja nicht 5, sondern einen Song schreiben. Auch war es
+					für uns Anfangs schwierig Rhythmen und Melodien zu finden, die zusammenpassten und nach
+					unserem subjektiven Eindruck auch gut klangen.
 				</p>
 				<br />
 				<p>
@@ -182,8 +194,7 @@
 					direkt damit angefangen Songs der Band "Nirvana" anzuhören und ein Schlagzeug und Bass mit
 					Midi Werkzeugen von GarageBand zu erstellen. Dies war viel leichter als einen Songtext aus
 					dem Nichts zu schreiben, trotzdem hätte man sich da retrospektiv schon auf ein generelles
-					Thema einigen können, was ich aber nicht bereue, da dieser, sehr kreative Prozess, sehr
-					viel Spaß gemacht hat.
+					Thema einigen können, um den Song in eine gewisse Richtung zu bewegen.
 				</p>
 				<br />
 			</div>
@@ -200,10 +211,10 @@
 					Resultat war ein, auch Nirvana typisch, eher "verrückter" Text innerhalb von 90 Minuten (2
 					getrennten Stunden), siehe z.B. "Paper Cuts", wobei über Missbrauch und mentale Qualen
 					gesungen wird. Dieser wurde zwar noch 2-3 mal angepasst, aber der generelle Inhalt war
-					vergleichsweise zu anderen Gruppen schnell fertig. Alleinig der Name des Songs, Coverbild
-					und das Hinzufügen einer weiteren Strophe von Hanno hat diesen Teil in die Länge gezogen.
-					Ab diesen Zeitpunkt waren wir schon mitten in den Aufnahmen und diese Sachen wurden in
-					Stunden, wo keine Aufnahmen gemacht wurde, erledigt.
+					vergleichsweise zu anderen Gruppen schnell fertig. Alleinig der Name des Songs, das
+					Coverbild und das Hinzufügen einer weiteren Strophe von Hanno hat diesen Teil in die Länge
+					gezogen. Ab diesen Zeitpunkt waren wir schon mitten in den Aufnahmen und diese Sachen
+					wurden in Stunden, wo keine Aufnahmen gemacht wurde, erledigt.
 				</p>
 				<br />
 			</div>
@@ -211,36 +222,51 @@
 				<p>
 					In diesen Einzelarbeitsphasen war Rückmeldung an die jeweilig andere Person seines
 					Fortschritts ein a und o, wir wollten etwas erschaffen, was uns beiden gefällt, nicht NUR
-					Hanno oder NUR mir. Das hat zum Anderen auch, obwohl wir nun meistens Einzeln an etwas
-					arbeiteten, uns manchmal etwas verlangsamt. Auch, weil wir an dem Punkt auch noch nach
-					unserer "Try and Error" arbeitsweise nachgingen.
+					Hanno oder NUR mir. Das hat zum Anderen auch, obwohl wir nun meistens getrennt an etwas
+					arbeiteten, uns manchmal verlangsamt. Auch, weil wir an dem Punkt auch noch nach unserer
+					"Try and Error" arbeitsweise nachgingen.
 				</p>
 				<br />
 				<p>
-					So ist es gekommen, dass wir die letzten Aufnahmen und das Abmischen bei mir zu Hause
-					machen mussten.
+					So ist es gekommen, dass wir die letzten Aufnahmen und das Abmischen bei mir zu Hause,
+					einem Tag vor Abgabe, machen mussten. Ein strikterer Zeitplan und mehr Geradlinigkeit
+					hätte dies verhindert.
 				</p>
 			</div>
 		</section>
-		<section use:reveal class="py-28 space-y-5">
-			<div>
-				<h2 class="h2 pb-1 md:pb-3">Analyse</h2>
-				<p>
-					Ich habe überwiegend Schlagzeug- und Bassparts komponiert, während Hanno vor allem für die
-					E-Gitarre und den Songtext verantwortlich war. Aus diesem Grund werde ich im Folgenden nur
-					diese beiden Elemente – die bereits beschriebene Grundstruktur – musikalisch analysieren.
-					Diese Basis bestand aus Schlagzeug und Bass.
-				</p>
-			</div>
-			<div>
-				<h3 class="h3 pb-0.5 md:pb-2">Schlagzeug</h3>
-				Das Schlagzeug war dabei stark orientiert an Nirvana (irgendein Song) ->> Musikalische Analyse
-				mit Hörbeispielen (coolem Component)
-			</div>
-			<div>
-				<h3 class="h3 pb-0.5 md:pb-2">Bass</h3>
-				->> Musikalische Analyse mit Hörbeispielen (coolem Component)
-			</div>
+		<section use:reveal class="pt-28 pb-5">
+			<h2 class="h2 pb-1 md:pb-3">Analyse</h2>
+			<p>
+				Ich habe überwiegend Schlagzeug- und Bassparts komponiert, während Hanno vor allem für die
+				E-Gitarre und den Songtext verantwortlich war. Aus diesem Grund werde ich im Folgenden nur
+				diese beiden Elemente – die bereits beschriebene Grundstruktur – musikalisch analysieren.
+			</p>
+		</section>
+		<section use:reveal class="pb-5">
+			<h3 class="h3 pb-0.5 md:pb-2">Schlagzeug</h3>
+			<p>
+				Unser Song selber ist dabei in einem Tempo von 111 bpm (grüne Markierung), ein eher
+				langsameres Tempo im Vergleich zu anderen Nirvana Songs, welche in dem Bereich von 114 bis
+				134 bpm liegen. Dies passt jedoch besser zum Inhalt des Songs. Zudem ist der Song in einem
+				4/4-Takt und G-Dur verfasst. Für das Schlagzeug ist die Tonart irrelevant. Bitte beachten
+				Sie, dass die Noten von GarageBand exportiert sind und GarageBand digitale Schlagzeuge mit
+				Notenwerten beschreibt.
+			</p>
+
+			<p>
+				Dieser startet mit einem Intro, welches von Takt 1 bis Takt 2 Zz. 3 aus 8-tel h's, hier eine Hi-Hat, besteht. 
+			</p>
+
+			<br />
+			<p>
+				Insgesamt wurde sich beim Schlagzeug stark an Nirvana orientiert. Die hauptsächlichen
+				Element, wie in Motiv ?, die 8-tel Hi-Hats und (siehe/beschreibe Motivenstruktur) die
+				generelle Struktur, sind aus Smells Like Teen Spirit.
+			</p>
+		</section>
+		<section use:reveal class="pb-28">
+			<h3 class="h3 pb-0.5 md:pb-2">Bass</h3>
+			<p>->> Musikalische Analyse mit Hörbeispielen (coolem Component)</p>
 		</section>
 		<section use:reveal class="py-28 space-y-5">
 			<div>
