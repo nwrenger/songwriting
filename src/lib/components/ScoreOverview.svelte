@@ -12,7 +12,7 @@
 
 <script lang="ts">
 	import { PdfViewer } from 'svelte-pdf-simple';
-	import type { PdfException, PdfLoadSuccess, PdfPageContent } from 'svelte-pdf-simple';
+	import type { PdfLoadSuccess, PdfPageContent } from 'svelte-pdf-simple';
 	import { fade } from 'svelte/transition';
 	import { ArrowLeft, ArrowRight, EyeOff, Music, Pause, Play } from 'lucide-svelte';
 
@@ -26,20 +26,19 @@
 	let pageNumber = $state(0);
 	let totalPages = $state(0);
 	let isPdfLoaded = $state(false);
-	let password = $state('');
 
 	let showPdf = $state(true);
 
 	let innerHeight: number | undefined = $state();
 	let innerWidth: number | undefined = $state();
 
-	let width = $state(400);
-	let height = $state(400);
-	const minWidth = 200;
-	const minHeight = 200;
 	// Height: + 1 * 16px Border, + 36px Buttons, + 64px Musik Controls
 	// Width: + 3 * 16px Border,
 	const aspectRatio: number = (2 * 16 + 210) / (1 * 16 + 36 + 297 + 64);
+	let width = $state(400);
+	let height = $state(Math.round(400 / aspectRatio));
+	const minWidth = 200;
+	const minHeight = 200;
 
 	let possibleWidth = $derived((innerWidth || width) - 16);
 	let possibleHeight = $derived((innerHeight || height) - 20);
@@ -84,9 +83,7 @@
 
 	function handleLoadedSuccess(event: CustomEvent<PdfLoadSuccess>) {
 		totalPages = event.detail.totalPages;
-		pageNumber = 1;
 		isPdfLoaded = true;
-		height = Math.round(width / aspectRatio);
 	}
 
 	function onDown(e: PointerEvent) {
@@ -171,27 +168,27 @@
 						<EyeOff />
 					</button>
 
-					{#if isPdfLoaded}
-						<div class="flex items-center justify-center gap-4">
-							<button
-								type="button"
-								class="btn-icon preset-filled"
-								onclick={() => navigatePages(false)}
-								title="Vorherige Seite"
-							>
-								<ArrowLeft size={24} />
-							</button>
-							<span class="text-sm">{pageNumber}/{totalPages}</span>
-							<button
-								type="button"
-								class="btn-icon preset-filled"
-								onclick={() => navigatePages(true)}
-								title="Nächste Seite"
-							>
-								<ArrowRight size={24} />
-							</button>
-						</div>
-					{/if}
+					<div class="flex items-center justify-center gap-4">
+						<button
+							type="button"
+							class="btn-icon preset-filled"
+							onclick={() => navigatePages(false)}
+							title="Vorherige Seite"
+							disabled={!isPdfLoaded}
+						>
+							<ArrowLeft size={24} />
+						</button>
+						<span class="text-sm">{pageNumber}/{totalPages}</span>
+						<button
+							type="button"
+							class="btn-icon preset-filled"
+							onclick={() => navigatePages(true)}
+							title="Nächste Seite"
+							disabled={!isPdfLoaded}
+						>
+							<ArrowRight size={24} />
+						</button>
+					</div>
 
 					<div class="border border-surface-200-800 flex-1 overflow-auto">
 						<a href={score.url} target="_blank" class="cursor-zoom-in">

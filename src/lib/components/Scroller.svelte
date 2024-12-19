@@ -17,7 +17,7 @@
 		const map = new Map<HTMLElement, UpdateFn>();
 
 		const observer = new IntersectionObserver(
-			(entries, observer) => {
+			(entries, _) => {
 				entries.forEach((entry) => {
 					const update = map.get(entry.target as HTMLElement);
 					if (!update) return;
