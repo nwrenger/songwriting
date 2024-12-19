@@ -206,8 +206,8 @@
 								class="w-full h-full"
 							>
 								<svelte:fragment slot="loading_failed">
-									<div class="text-sm text-center p-2 text-red-500">
-										Something went wrong loading the PDF.
+									<div class="text-sm text-center p-2 text-error-500">
+										Etwas ist schief gelaufen beim Laden des PDFs.
 									</div>
 								</svelte:fragment>
 							</PdfViewer>
