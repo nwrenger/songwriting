@@ -55,6 +55,7 @@
 
 	$effect(() => {
 		if (pdfViewer) pageNumber = 1;
+		isPdfLoaded = false;
 	});
 
 	$effect(() => {
