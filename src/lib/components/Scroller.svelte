@@ -1,4 +1,4 @@
-<script context="module" lang="ts">
+<script module lang="ts">
 	type UpdateFn = () => void;
 	const handlers: UpdateFn[] = [];
 	let manager: {
