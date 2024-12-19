@@ -68,6 +68,7 @@
 
 	$effect(() => {
 		height = Math.min(possibleHeight, height);
+		width = Math.round(height * aspectRatio);
 	});
 
 	async function navigatePages(forward: boolean = false): Promise<void> {
