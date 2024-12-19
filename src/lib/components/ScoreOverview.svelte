@@ -40,7 +40,7 @@
 	const minWidth = 200;
 	const minHeight = 200;
 
-	const padding = 16 * 2
+	const padding = 16 * 2;
 	let possibleWidth = $derived((innerWidth || width) - padding);
 	let possibleHeight = $derived((innerHeight || height) - padding);
 
