@@ -40,8 +40,9 @@
 	const minWidth = 200;
 	const minHeight = 200;
 
-	let possibleWidth = $derived((innerWidth || width) - 16);
-	let possibleHeight = $derived((innerHeight || height) - 20);
+	const padding = 16 * 2
+	let possibleWidth = $derived((innerWidth || width) - padding);
+	let possibleHeight = $derived((innerHeight || height) - padding);
 
 	let resizing = false;
 	let startX = 0;

@@ -22,6 +22,10 @@
 	const minWidth = 200;
 	const minHeight = 200;
 
+	const padding = 16 * 2;
+	let possibleWidth = $derived((innerWidth || width) - padding);
+	let possibleHeight = $derived((innerHeight || height) - padding);
+
 	let resizing = false;
 	let startX = 0;
 	let startY = 0;
@@ -33,11 +37,11 @@
 	});
 
 	$effect(() => {
-		width = Math.min((innerWidth || width) - 16, width);
+		width = Math.min(possibleWidth, width);
 	});
 
 	$effect(() => {
-		height = Math.min((innerHeight || height) - 20, height);
+		height = Math.min(possibleHeight, height);
 	});
 
 	function onDown(e: PointerEvent) {
