@@ -24,13 +24,45 @@
 	bind:index
 	bind:offset
 	bind:progress
-	overviewContent={[
-		[],
-		['before.jpg'],
-		['ideas.jpg', 'trello.png'],
-		['songtext-1.jpeg', 'songtext-2.jpeg', 'final-songtext-1.png', 'final-songtext-2.png']
-	]}
-	pdfContent={[undefined, undefined, undefined, undefined, undefined, 'Schlagzeug.pdf', 'todo.pdf']}
+	pictures={new Map([
+		[
+			1, // Meine Erwartungen
+			['erwartungen.jpg']
+		],
+		[
+			2, // Gruppen- und Ideenfindung
+			['ideen.jpg', 'trello.png']
+		],
+		[
+			3, // Teamarbeit und Ablauf
+			['songtext-1.jpeg', 'songtext-2.jpeg', 'finaler-songtext-1.png', 'finaler-songtext-2.png']
+		]
+	])}
+	score={new Map([
+		[
+			5, // Analyse - Schlagzeug
+			{
+				url: 'schlagzeug/noten.pdf',
+				songSnippets: [
+					{ name: 'Intro', url: 'schlagzeug/intro.mp3' },
+					{ name: 'Motive a', url: 'schlagzeug/motiv a.mp3' },
+					{ name: "Motive a'", url: "schlagzeug/motiv a'.mp3" },
+					{ name: 'Motive b', url: 'schlagzeug/motiv b.mp3' },
+					{ name: 'Motive c', url: 'schlagzeug/motiv c.mp3' },
+					{ name: 'Motive d', url: 'schlagzeug/motiv d.mp3' },
+					{ name: 'Motive e', url: 'schlagzeug/motiv e.mp3' },
+					{ name: "Motive e'", url: "schlagzeug/motiv e'.mp3" },
+					{ name: 'Motive f', url: 'schlagzeug/motiv f.mp3' },
+					{ name: "Motive f'", url: "schlagzeug/motiv f'.mp3" }
+				]
+			}
+		]
+		// todo!
+		// [
+		// 	6, // Analyse - Bass
+		// 	{ url: '', songSnippets: [] }
+		// ]
+	])}
 >
 	<div slot="background" class="relative h-full max-w-5xl mx-auto">
 		<div
@@ -80,15 +112,16 @@
 				Sie einfach dem Verlauf nach unten, um alle Entwicklungsschritte nachzuvollziehen.
 			</p>
 			<p>
-				Unten rechts befindet sich eine Bilderübersicht. Klicken Sie auf das angezeigte Bild, um es
-				in einem neuen Tab zu öffnen. Sie können die Bilderübersicht auch ausblenden, indem Sie auf
-				den Button mit dem durchgestrichenen Auge klicken. Ebenso gibt es unten links einen
-				PDF-Viewer (ebenfalls derzeit unsichtbar), der auf die gleiche Weise funktioniert.
+				Unten rechts befindet sich eine Bilderübersicht (derzeit unsichtbar). Klicken Sie auf das
+				angezeigte Bild, um es in einem neuen Tab zu öffnen. Sie können die Bilderübersicht auch
+				ausblenden, indem Sie auf den Button mit dem durchgestrichenen Auge klicken. Ebenso gibt es
+				unten links einen Notenübersicht (ebenfalls derzeit unsichtbar), der auf die gleiche Weise
+				funktioniert.
 			</p>
 			<p>
-				Außerdem finden Sie in den jeweiligen oberen und unteren Ecken der Bild- und PDF-Viewer ein
-				"Draghandle", mit dem sich das angezeigte Fenster ganz nach Ihren Wünschen vergrößern oder
-				verkleinern lässt. Viel Freude beim Erkunden!
+				Außerdem finden Sie in den jeweiligen oberen Ecken der Bild- und Notenübersicht eine
+				andersfarbige Fläche, mit dem sich das angezeigte Fenster ganz nach Ihren Wünschen
+				vergrößern oder verkleinern lässt. Viel Freude beim Erkunden!
 			</p>
 		</section>
 

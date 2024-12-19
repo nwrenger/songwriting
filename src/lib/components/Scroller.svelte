@@ -71,7 +71,7 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import PictureOverview from './PictureOverview.svelte';
-	import PdfOverview from './PdfOverview.svelte';
+	import ScoreOverview, { type Score } from './ScoreOverview.svelte';
 
 	// config
 	export let top: number = 0;
@@ -79,8 +79,8 @@
 	export let threshold: number = 0.5;
 	export let query: string = 'section';
 	export let parallax: boolean = false;
-	export let overviewContent: string[][] = [];
-	export let pdfContent: (string | undefined)[] = [];
+	export let pictures: Map<number, string[]> = new Map();
+	export let score: Map<number, Score> = new Map();
 
 	// bindings
 	export let index: number = 0;
@@ -98,7 +98,6 @@
 	let fixed: boolean;
 	let offset_top: number = 0;
 	let width: number = 1;
-	let height: number;
 	let inverted: boolean = false;
 
 	let top_px: number;
@@ -193,8 +192,8 @@
 
 	<svelte-scroller-foreground bind:this={foreground}>
 		<slot name="foreground"></slot>
-		<PictureOverview pictureContent={overviewContent[index]} />
-		<PdfOverview pdfContent={pdfContent[index]} />
+		<PictureOverview pictures={pictures.get(index)} />
+		<ScoreOverview score={score.get(index)} />
 	</svelte-scroller-foreground>
 </svelte-scroller-outer>
 

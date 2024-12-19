@@ -1,14 +1,26 @@
+<script module lang="ts">
+	export interface Score {
+		url: string;
+		songSnippets: SongSnippet[];
+	}
+
+	export interface SongSnippet {
+		name: string;
+		url: string;
+	}
+</script>
+
 <script lang="ts">
 	import { PdfViewer } from 'svelte-pdf-simple';
 	import type { PdfException, PdfLoadSuccess, PdfPageContent } from 'svelte-pdf-simple';
 	import { fade } from 'svelte/transition';
-	import { ArrowLeft, ArrowRight, EyeOff, NotebookPen } from 'lucide-svelte';
+	import { ArrowLeft, ArrowRight, EyeOff, Music, Pause, Play } from 'lucide-svelte';
 
 	interface Props {
-		pdfContent?: string;
+		score?: Score;
 	}
 
-	let { pdfContent }: Props = $props();
+	let { score }: Props = $props();
 
 	let pdfViewer: PdfViewer | undefined = $state();
 	let pageNumber = $state(0);
@@ -25,19 +37,28 @@
 	let height = $state(400);
 	const minWidth = 200;
 	const minHeight = 200;
-	const aspectRatio: number = 210 / 297;
+	// Height: + 1 * 16px Border, + 36px Buttons, + 64px Musik Controls
+	// Width: + 3 * 16px Border,
+	const aspectRatio: number = (2 * 16 + 210) / (1 * 16 + 36 + 297 + 64);
 
 	let possibleWidth = $derived((innerWidth || width) - 16);
 	let possibleHeight = $derived((innerHeight || height) - 20);
 
 	let resizing = false;
 	let startX = 0;
-	let startY = 0;
+	let startY;
 	let startWidth = 0;
-	let startHeight = 0;
+	let startHeight;
+
+	let audioEl: HTMLAudioElement | undefined = $state();
+	let paused = $state(true);
 
 	$effect(() => {
 		if (pdfViewer) pageNumber = 1;
+	});
+
+	$effect(() => {
+		if (audioEl && audioEl.src) paused = true;
 	});
 
 	$effect(() => {
@@ -68,12 +89,7 @@
 		height = Math.round(width / aspectRatio);
 	}
 
-	function handleLoadFailure(event: CustomEvent<PdfException>) {
-		console.error('Failed to load PDF:', event.detail);
-	}
-
 	function onDown(e: PointerEvent) {
-		// styles for the cursor
 		document.body.style.cursor = 'nesw-resize';
 		resizing = true;
 		startX = e.clientX;
@@ -99,7 +115,6 @@
 	}
 
 	function onUp() {
-		// styles for the cursor
 		document.body.style.cursor = '';
 		resizing = false;
 		window.removeEventListener('pointermove', onMove);
@@ -109,21 +124,30 @@
 	function togglePdfViewer() {
 		showPdf = !showPdf;
 	}
+
+	function togglePlay() {
+		paused = !paused;
+	}
+
+	function selectSong(e: Event) {
+		let target = e.target as HTMLSelectElement;
+		if (audioEl) audioEl.src = target.value;
+	}
 </script>
 
 <svelte:window bind:innerWidth bind:innerHeight />
 
-{#if pdfContent}
+{#if score}
 	<div transition:fade|global={{ duration: 600 }}>
-		{#key pdfContent}
+		{#key score}
 			{#if !showPdf}
 				<button
 					type="button"
 					class="fixed bottom-4 left-4 btn-icon preset-filled-primary-500"
 					onclick={togglePdfViewer}
-					title="Zeige PDF Viewer"
+					title="Zeige Notenübersicht"
 				>
-					<NotebookPen />
+					<Music size={24} />
 				</button>
 			{:else}
 				<div
@@ -134,15 +158,15 @@
 						class="absolute top-0 right-0 w-5 h-5 bg-surface-200-800 select-none"
 						onpointerdown={onDown}
 						style="border-bottom-left-radius: 4px; cursor:nesw-resize;"
-						title="Drag to resize"
-						aria-label="Drag to resize"
+						title="Ziehen um die Größe zu ändern"
+						aria-label="Ziehen um die Größe zu ändern"
 					></button>
 
 					<button
 						type="button"
 						class="absolute top-1 left-1 btn-icon preset-tonal-surface"
 						onclick={togglePdfViewer}
-						title="Verstecke PDF Viewer"
+						title="Verstecke Notenübersicht"
 					>
 						<EyeOff />
 					</button>
@@ -155,7 +179,7 @@
 								onclick={() => navigatePages(false)}
 								title="Vorherige Seite"
 							>
-								<ArrowLeft size={16} />
+								<ArrowLeft size={24} />
 							</button>
 							<span class="text-sm">{pageNumber}/{totalPages}</span>
 							<button
@@ -164,56 +188,58 @@
 								onclick={() => navigatePages(true)}
 								title="Nächste Seite"
 							>
-								<ArrowRight size={16} />
+								<ArrowRight size={24} />
 							</button>
 						</div>
 					{/if}
 
 					<div class="border border-surface-200-800 flex-1 overflow-auto">
-						<a href={pdfContent} class="cursor-zoom-in">
+						<a href={score.url} target="_blank" class="cursor-zoom-in">
 							<PdfViewer
 								bind:this={pdfViewer}
 								props={{
-									path: pdfContent,
-									scale: 5.0,
+									path: score.url,
+									scale: 4.0,
 									withAnnotations: true,
 									withTextContent: true
 								}}
 								on:load_success={handleLoadedSuccess}
-								on:load_failure={handleLoadFailure}
 								on:page_changed={handlePageChanged}
 								class="w-full h-full"
 							>
-								<svelte:fragment slot="loading">
-									<div class="text-sm text-center p-2">Loading PDF...</div>
-								</svelte:fragment>
 								<svelte:fragment slot="loading_failed">
 									<div class="text-sm text-center p-2 text-red-500">
 										Something went wrong loading the PDF.
 									</div>
 								</svelte:fragment>
-								<svelte:fragment slot="password_required">
-									<p class="text-sm mb-2">
-										This PDF is password protected. Please enter the password:
-									</p>
-									<div class="flex gap-2 justify-center">
-										<input
-											class="border border-gray-300 rounded p-1 text-sm"
-											type="password"
-											bind:value={password}
-										/>
-										<button
-											type="button"
-											class="btn preset-filled-primary-500"
-											onclick={() => pdfViewer?.openWithPassword(password)}
-										>
-											Unlock
-										</button>
-									</div>
-								</svelte:fragment>
 							</PdfViewer>
 						</a>
 					</div>
+
+					{#if score?.songSnippets && score.songSnippets.length > 0}
+						<div class="flex flex-col items-center gap-2">
+							<audio bind:this={audioEl} bind:paused src={score.songSnippets[0].url}></audio>
+							<div class="grid grid-cols-[36px_auto] gap-4 w-full">
+								<button
+									type="button"
+									class="btn-icon preset-filled"
+									onclick={togglePlay}
+									title="Start/Stop"
+								>
+									{#if paused}
+										<Play size={24} />
+									{:else}
+										<Pause size={24} />
+									{/if}
+								</button>
+								<select class="select w-full" onchange={selectSong}>
+									{#each score.songSnippets as song}
+										<option value={song.url}>{song.name}</option>
+									{/each}
+								</select>
+							</div>
+						</div>
+					{/if}
 				</div>
 			{/if}
 		{/key}

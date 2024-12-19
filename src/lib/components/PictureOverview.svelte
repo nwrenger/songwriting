@@ -1,12 +1,12 @@
 <script lang="ts">
-	import { ArrowLeft, ArrowRight, Fullscreen, EyeOff } from 'lucide-svelte';
+	import { ArrowLeft, ArrowRight, EyeOff, Images } from 'lucide-svelte';
 	import { fade } from 'svelte/transition';
 
 	interface Props {
-		pictureContent: string[];
+		pictures: string[] | undefined;
 	}
 
-	let { pictureContent = [] }: Props = $props();
+	let { pictures = [] }: Props = $props();
 
 	let showImages = $state(true);
 
@@ -14,8 +14,8 @@
 	let innerWidth: number | undefined = $state();
 
 	let pictureIndex = $state(0);
-	let totalImages = $derived(pictureContent.length);
-	let currentImage = $derived(pictureContent[pictureIndex]);
+	let totalImages = $derived(pictures?.length);
+	let currentImage = $derived(pictures[pictureIndex]);
 
 	let width = $state(600);
 	let height = $state(400);
@@ -29,7 +29,7 @@
 	let startHeight = 0;
 
 	$effect(() => {
-		if (pictureContent) pictureIndex = 0;
+		if (pictures) pictureIndex = 0;
 	});
 
 	$effect(() => {
@@ -88,7 +88,7 @@
 
 <svelte:window bind:innerWidth bind:innerHeight />
 
-{#if pictureContent.length > 0}
+{#if pictures?.length > 0}
 	<div transition:fade|global={{ duration: 600 }}>
 		{#if !showImages}
 			<button
@@ -97,7 +97,7 @@
 				onclick={toggleView}
 				title="Zeige Bilderübersicht"
 			>
-				<Fullscreen size="24" />
+				<Images size={24} />
 			</button>
 		{:else}
 			<div
@@ -108,8 +108,8 @@
 					class="absolute top-0 left-0 w-5 h-5 bg-surface-200-800 select-none"
 					style="border-bottom-right-radius:4px; cursor:nwse-resize;"
 					onpointerdown={onDown}
-					title="Drag to resize"
-					aria-label="Drag to resize"
+					title="Ziehen um die Größe zu ändern"
+					aria-label="Ziehen um die Größe zu ändern"
 				></button>
 
 				<button
@@ -121,31 +121,27 @@
 					<EyeOff />
 				</button>
 
-				{#if totalImages > 1}
-					<div class="flex items-center justify-center gap-4">
-						<button
-							type="button"
-							class="btn-icon preset-filled"
-							onclick={prevImage}
-							title="Vorheriges Bild"
-						>
-							<ArrowLeft size={16} />
-						</button>
-						<span class="text-sm">{pictureIndex + 1}/{totalImages}</span>
-						<button
-							type="button"
-							class="btn-icon preset-filled"
-							onclick={nextImage}
-							title="Nächstes Bild"
-						>
-							<ArrowRight size={16} />
-						</button>
-					</div>
-				{:else}
-					<div class="flex items-center justify-center gap-4">
-						<span class="text-sm">1/1</span>
-					</div>
-				{/if}
+				<div class="flex items-center justify-center gap-4">
+					<button
+						type="button"
+						class="btn-icon preset-filled"
+						onclick={prevImage}
+						title="Vorheriges Bild"
+						disabled={totalImages <= 1}
+					>
+						<ArrowLeft size={24} />
+					</button>
+					<span class="text-sm">{pictureIndex + 1}/{totalImages}</span>
+					<button
+						type="button"
+						class="btn-icon preset-filled"
+						onclick={nextImage}
+						title="Nächstes Bild"
+						disabled={totalImages <= 1}
+					>
+						<ArrowRight size={24} />
+					</button>
+				</div>
 
 				<div class="flex items-center justify-center h-full overflow-hidden">
 					{#if currentImage}
