@@ -110,7 +110,7 @@
 			>
 				<button
 					class="absolute top-0 left-0 w-5 h-5 bg-surface-200-800 select-none"
-					style="border-bottom-right-radius:4px; cursor:nwse-resize;"
+					style="border-bottom-right-radius:4px; border-top-left-radius: 4px; cursor:nwse-resize;"
 					onpointerdown={onDown}
 					title="Ziehen um die Größe zu ändern"
 					aria-label="Ziehen um die Größe zu ändern"
