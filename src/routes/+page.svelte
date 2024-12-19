@@ -40,7 +40,7 @@
 	])}
 	score={new Map([
 		[
-			5, // Analyse - Schlagzeug
+			6, // Analyse - Schlagzeug
 			{
 				url: 'schlagzeug/noten.pdf',
 				songSnippets: [
@@ -133,7 +133,7 @@
 				ausreichen würden, und, ob ich mich on den ganzen Möglichkeiten für einen Song
 				(Ideen/Genre/Melodie) mit meiner Gruppe für eine entscheiden könnte. Zum anderen hoffe ich
 				Spaß in meiner Gruppe daran zu haben. Das ist auch der ursprüngliche Grund warum ich Musik
-				im 1. Semester gewählt hatte, für das Songwriting-Projekt. Nichtdestotrotz ist mir das
+				im 1. Semester gewählt hatte, für das Songwriting-Projekt. Nichtsdestotrotz ist mir das
 				Endprodukt auch wichtig, es soll wenigstens Spaß mache sich an zu hören. Das ist mein
 				jetziger Anspruch. Insgesamt werden hier zwar einige Sorgen ersichtlich, jedoch wurde eher
 				Positiv auf die kommende Projektarbeit geguckt (im Vorhinein verfasst, siehe Bild 1).
@@ -213,17 +213,65 @@
 			</div>
 			<div use:reveal>
 				<p>
-					In diesen Einzelarbeitsphasen war Rückmeldung an die jeweilig andere Person seines
-					Fortschritts ein a und o, wir wollten etwas erschaffen, was uns beiden gefällt, nicht NUR
-					Hanno oder NUR mir. Das hat zum Anderen auch, obwohl wir nun meistens getrennt an etwas
-					arbeiteten, uns manchmal verlangsamt. Auch, weil wir an dem Punkt auch noch nach unserer
-					"Try and Error" arbeitsweise nachgingen.
+					In diesen Einzelarbeitsphasen haben wir öfter Rückmeldung an die jeweilig andere Person
+					seines Fortschritts gegeben. Wir wollten etwas erschaffen, was uns beiden gefällt. Das hat
+					zum Anderen auch, obwohl wir nun meistens getrennt an etwas arbeiteten, uns manchmal
+					verlangsamt. Auch, weil wir an dem Punkt auch noch nach unserer "Try and Error"
+					arbeitsweise nachgingen.
 				</p>
 				<br />
 				<p>
 					So ist es gekommen, dass wir die letzten Aufnahmen und das Abmischen bei mir zu Hause,
 					einem Tag vor Abgabe, machen mussten. Ein strikterer Zeitplan und mehr Geradlinigkeit
 					hätte dies verhindert.
+				</p>
+			</div>
+		</section>
+		<section class="pt-28">
+			<div use:reveal>
+				<h2 class="h2 pb-1 md:pb-3">Aufbau</h2>
+				<p>
+					Unser Song selber ist dabei in einem Tempo von 111 bpm (grüne Markierung), ein typisches
+					Tempo für Nirvana inspirierte Songs. Die sind in dem Bereich von 92 bis 138 bpm
+					geschrieben. Zudem ist der Song in einem 4/4-Takt und G-Dur verfasst.
+				</p>
+			</div>
+			<div use:reveal>
+				<p class="pb-1 md:pb-3">Aufgebaut ist dieser dabei wie folgt:</p>
+				<ul class="list-inside list-disc space-y-2">
+					<li>Ab Takt 1: Gitarren Intro</li>
+					<li>Ab Takt 5: Bass Intro</li>
+					<li>Ab Takt 7: Schlagzeug Intro</li>
+					<li>Takt 9-16: Strophe 1</li>
+					<li>Takt 17-22: Pre Chorus</li>
+					<li>Takt 23-24: Bridge für Pre Chorus und Strophe</li>
+					<li>Takt 25-32: Strophe 2</li>
+					<li>Takt 33-38: Pre Chorus</li>
+					<li>Takt 39-40: Überleitung Pre Chorus zu Chorus</li>
+					<li>Takt 41-48: Chorus</li>
+					<li>Takt 49-56: Strophe 3</li>
+					<li>Takt 57-62: Pre Chorus</li>
+					<li>Takt 63-64: Überleitung Pre Chorus zu Chorus</li>
+					<li>Takt 65-73: Chorus</li>
+					<li>Takt 73-76: Chorus - Schlagzeug Solo</li>
+					<li>Takt 77-84: Bridge zwischen Chorusse</li>
+					<li>Takt 85-92: Chorus</li>
+					<li>Takt 93: Gitarren Outtro</li>
+					<li>Takt 93: Schlagzeug Cutoff</li>
+					<li>Takt 93-97: Bass Solo</li>
+					<li>Takt 98: Bass Cutoff-Ende</li>
+				</ul>
+				<br />
+			</div>
+			<div use:reveal>
+				<p>
+					Mit einem gestaffelten Anfang und Ende, und spezifischen Intros und Outtros wollten wir
+					die einzelnen Stimmen hervorheben. Am Anfang die E-Gitarre und das Schlagzeug und am Ende
+					den Bass, der eher Struktur gibt und bis dahin nie im Vordergrund stand. Insgesamt wurde
+					das Stück mit 98 Takten bzw. 3:28 Minuten länger als Anfänglich antizipiert und nur
+					möglich, da wir viel mit Wiederholungen gearbeitet haben. Jede Strophe, Pre Chorus und
+					Chorus waren Instrumental 1 zu 1 gleich und wurden kopiert, nur die Bridges, Überleitungen
+					und Intros/Outtros waren unterschiedlich.
 				</p>
 			</div>
 		</section>
@@ -235,54 +283,169 @@
 				diese beiden Elemente – die bereits beschriebene Grundstruktur – musikalisch analysieren.
 			</p>
 		</section>
-		<section use:reveal class="pb-5">
+		<section class="pb-5">
 			<h3 class="h3 pb-0.5 md:pb-2">Schlagzeug</h3>
-			<p>
-				Unser Song selber ist dabei in einem Tempo von 111 bpm (grüne Markierung), ein typisches
-				Tempo für Nirvana inspirierte Songs. Die sind in dem Bereich von 92 bis 138 bpm geschrieben.
-				Zudem ist der Song in einem 4/4-Takt und G-Dur verfasst. Für das Schlagzeug ist die Tonart
-				irrelevant. Bitte beachten Sie, dass die Noten von GarageBand exportiert sind und GarageBand
-				digitale Schlagzeuge mit Notenwerten beschreibt.
-			</p>
-			<br />
-			<p>
-				Das Intro (dunkelgrüne Markierung) startet mit durchgehenden 8-tel h's, hier eine Hi-Hat,
-				bis Takt 8 Zz. 3.
-			</p>
+			<div use:reveal>
+				<p>
+					Für das Schlagzeug ist die Tonart irrelevant. Bitte beachten Sie, dass die Noten von
+					GarageBand exportiert sind und GarageBand digitale Schlagzeuge mit Notenwerten beschreibt.
+					In der Notenübersicht können sie sich auch teile der einzelnen Motive anhören.
+				</p>
+				<br />
+				<p>
+					Das Intro (dunkelgrüne Markierung) zeichnet sich durch durchgehende 8tel Hi-Hats (h) aus.
+					In Takt 8, Zählzeit 3 (Zz. 3), wird dieses Muster durch eine punktierte 32tel Snare Drum
+					(D) ergänzt. Im Anschluss folgt eine 64tel Tom (C), bevor in Zz. 3,5 eine 16tel Hi-Hat
+					erklingt. Diese wird anschließend von einer Snare Drum in Zz. 4 abgelöst, die von zwei
+					Toms umspielt wird: einer 16tel Tom in Zz. 3,75 und einer 8tel Tom in Zz. 4,5.
+				</p>
+				<br />
+			</div>
 
-			<br />
-			<p>
-				Insgesamt wurde sich beim Schlagzeug stark an Nirvana orientiert. Die hauptsächlichen
-				Element, wie in Motiv ?, die 8-tel Hi-Hats und (siehe/beschreibe Motivenstruktur) die
-				generelle Struktur, sind aus Smells Like Teen Spirit.
-			</p>
+			<div use:reveal>
+				<p>
+					Das aufgestellte Pattern von durchgehend 8tel Hi-Hats und teilweise durchgehenden 8tel
+					Toms mit zwei Umspielungen von Achtel Snare Drums in Zz. 2 und 4, wie im Intro in Zz. 4
+					eingeleitet, geht hier in Takt 9 weiter und bildet das Motiv a (rote Markierung), wobei
+					das Intro einleitend für Motiv a wirkt, was auch der angestrebte Effekt war. In bspw. Takt
+					13 ist dabei eine Variation von Motiv a, Motiv a' (rote Markierung), zu sehen. In Zz 4,5
+					wird dafür die ungespielte Tom mit einer 32tel Snare Drum wiederholt und in Zz. 4,75
+					verfrüht auf eine 64tel Snare Drum zurückgeführt. Diese Variation soll das eher monotone
+					Schlagzeug leicht spannender machen. Motiv a und a' wurden insgesamt bei den jew. Strophen
+					verwendet. Dafür wurden hauptsächlich die Motive hintereinander wiederholt, Motiv a' weit
+					weniger als Motiv a.
+				</p>
+				<br />
+			</div>
+			<div use:reveal>
+				<p>
+					Darauf folgt Motiv b (blaue Markierung) in Takt 17-18 ist ein 2-Takter und wiederholt im
+					1. Takt des Motivs Motiv a und im 2. Takt eine starke Variation von Motiv a. Hier bleibt
+					die durchgehende 8tel Hi-Hat bestehen, während die Tom-Pattern in Zz. 2,75 und 3,5 durch
+					eine Snare-Betonung in den Vordergrund treten. Diese Veränderung hebt Motiv b als
+					eigenständigen Abschnitt hervor. Die Zwischenspiele in Takt 2 des Motivs sind in den
+					Gesangspausen, womit das Schlagzeug als rhythmisch und komplex hervorhebt werden sollte.
+					Dieses Motiv wird im Pre-Chorus genutzt und kommt im Anschluss von Strophen.
+				</p>
+				<br />
+				<p>
+					Motiv c (violette Markierung) in Takt 23-24 folgt in den Teilen zwischen Motiv b und a als
+					Bridge für Pre Chorus und Strophe 2 des Songs und bricht mit der Struktur der vorherigen
+					Motive. Statt durchgehenden 8tel Hi-Hats wird ein langsamerer Rhythmus mit punktierten
+					Viertelnoten auf der Hi-Hat gespielt. Dies wird ergänzt durch synkopische Snare- und
+					Tom-Patterns, die für eine kontrastierende Dynamik sorgen. Ziel dieser Gestaltung war es,
+					den Spannungsbogen des Songs zu verstärken und den Übergang zurück zu den Strophen
+					motivisch vorzubereiten.
+				</p>
+				<br />
+			</div>
+			<div use:reveal>
+				<p>
+					Nach Strophe 2, bzw. Motiv a, und Pre-Chorus, bzw. Motiv b, folgt in Takt 39-40 Motiv d
+					(helllila Markierung). In Takt 1 des Motivs ist, wie auch in Motiv b, Motiv a vorhanden.
+					Eine aufbauende/Crescendo-artige Dynamik wird durch zwei gleichzeitig spielenden Toms in
+					Takt 2 des Motivs erzeugt, siehe Zz. 1, 2, 3 und 4. Dies soll den Hörer auf den kommenden
+					Chorus vorbereiten - vom Pre Chorus zum Chorus überzuleiten - und den Spannungsbogen des
+					Songs verstärken.
+				</p>
+				<br />
+
+				<p>
+					Im darauffolgenden Chorus, dargestellt durch Motiv e (orangene Markierung), erreicht der
+					Song einen bis jetzt einen unerreichten Höhepunkt. Die Schlagzeugbegleitung wechselt zu
+					einem kraftvollen und eingängigen Rhythmus. Die generelle Struktur aus Motiv a bleibt in
+					Takt 1 bestehen, nur wird Zz. 1 ein Crash (a) hinzugefügt und in Zz. 2 anstatt einem 8tel
+					Tom zwei 16tel Tom gespielt. Takt 2 beginnt in Zz. 1 auch auf einem Crash und Hi-Hat, nur
+					wird die Snare-Drum mit einer darauffolgenden 16tel Tom in Zz. 1,75 umspielt. Insgesamt
+					eine starke Variation von a Motiven hintereinander. Dieses Motiv wird im Chorus weiter
+					wiederholt und soll diesen hervorheben und dem Hörer einen einprägsamen und mitreißenden
+					Abschnitt bieten.
+				</p>
+				<br />
+			</div>
+			<div use:reveal>
+				<p>
+					Nach einer weiteren Strophe, Strophe 3, und einem Pre Chorus und Chorus folgt in Takt
+					73-74 Motiv e' (orangene Markierung), einer Variation von Motiv e, wobei der Crash von Zz.
+					1 zu jeder vollen Zz. hinzugefügt wurde. Dieses Motiv wird ein weiteres Mal wiederholt und
+					bildet den energischen Höhepunkt des Songs. Zudem wird hier nicht Gesungen, was dies noch
+					mehr verstärken sollte.
+				</p>
+				<br />
+
+				<p>
+					Auf diesen Höhepunkt folgt eine Bridge mit Motiv f (lila Markierung), welche sich
+					rhythmisch in vollem Maße von den anderen Motiven abgrenzt. Keine durchgehende 8tel Hi-Hat
+					mehr und ein synkopischer Rhythmus bestehend aus einer punktierten 8tel und 16tel Tom.
+					Darauf folgt eine 8tel Pause und eine gleichzeitiger 8tel aus Ride-Becken (c) und einer
+					Snare Drum. In Zz. 3 und 4 wiederholt sich dieser Rhythmus. Hier wird weiterhin etwas
+					ähnliches zum Crash verwendet, um die Spannung aufgebaut durch Motiv e' nicht komplett zu
+					verlieren.
+				</p>
+				<br />
+			</div>
+			<div use:reveal>
+				<p>
+					Um wie bei Motiv a' das Hauptmotiv der aktuellen Sektion zu variieren, wurde in Takt 79
+					und 83 eine Variation von Motiv f, Motiv f', (lila Markierung) verwendet. Einzig Zz. 1
+					wurde verändert, indem die punktierte 8tel Hi-Hat in eine 16tel und 8tel Hi-Hat auf
+					geteilt wurde. Auch spielt in Zz. 1,75 nicht nur die Tom, sondern auch die in der im
+					Chorus verwendete Crash.
+				</p>
+				<br />
+
+				<p>
+					Nach der Bridge folgt ein weitere Chorus, nur aus Motiv e Wiederholungen, und der Song
+					endet.
+				</p>
+				<br />
+
+				<p>
+					Insgesamt wurde sich beim Schlagzeug stark an Nirvana orientiert. Die hauptsächlichen
+					Element, wie in Motiv a/b/c/d/e, die 8-tel Hi-Hats, und die Idee für Motiv e und e', die
+					Crash auf die Ganzen und dann 4tel zu legen, sind aus Smells Like Teen Spirit. Der Rest
+					ist durch eigenes komponieren bzw. ausprobieren entstanden. Im Nachhinein betrachtet wäre
+					es eine gute Idee gewesen nach Grundstrukturen des Schlagzeugs im Grunge, Rock der 80er
+					und Alternative Rock zu orientieren, da so das Schlagzeug weniger Monoton und spannender
+					geworden wäre. Der Song würde auch besser zur ursprünglich angestrebten Vorlage, Nirvana,
+					passen.
+				</p>
+			</div>
 		</section>
 		<section use:reveal class="pb-28">
 			<h3 class="h3 pb-0.5 md:pb-2">Bass</h3>
-			<p>->> Musikalische Analyse mit Hörbeispielen (coolem Component)</p>
+			<p>
+				Der Bass war hingegen um einiges simpler.
+				<!-- todo: 2 Motive beschreiben, Grundton der jew. Harmonie, außer 4. Ton (siehe Harmonie),  -->
+			</p>
 		</section>
 		<section use:reveal class="py-28 space-y-5">
 			<div>
 				<h2 class="h2 pb-1 md:pb-3">Aufnahmen</h2>
 				<p>
-					<!-- todo -->
+					<!-- Generelle Vorgehensweise -->
 				</p>
 			</div>
 			<div>
 				<h3 class="h3 pb-0.5 md:pb-2">E-Gitarre</h3>
-				<!-- todo -->
+				<!-- Gut/Schlecht? -> Meine Sicht als Producer, Hanno hat gespielt, Ideen on the fly -->
 			</div>
 			<div>
 				<h3 class="h3 pb-0.5 md:pb-2">Gesang</h3>
-				<!-- todo -->
+				<!-- Gut/Schlecht? -> Meine Sicht als Producer und Sänger, Ideen on the fly -->
 			</div>
 		</section>
 		<section use:reveal class="py-28">
 			<h2 class="h2 pb-1 md:pb-3">Nachbearbeitung</h2>
+			<p>Stimme (-> Pitch Correction, Hall), Lautstärke Variationen</p>
 			<p>
-				Das Abmischen und verbessern des Songs (schiefer Hanno im Pre-Chorus (-> Schlagzeug),
-				Gitarre weniger Overdrive)
+				Verbessern des Songs (schiefer Hanno im Pre-Chorus (-> Schlagzeug), Gitarre weniger
+				Overdrive,)
 			</p>
+		</section>
+		<section use:reveal class="py-28">
+			<h2 class="h2 pb-1 md:pb-3">Endprodukt</h2>
+			<!-- todo: put song here -->
 		</section>
 	</div>
 </Scroller>

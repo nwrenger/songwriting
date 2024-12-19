@@ -16,7 +16,8 @@
 		background-size: cover;
 		overflow-x: hidden;
 	}
-	p {
+	p,
+	li {
 		@apply text-lg;
 	}
 }
