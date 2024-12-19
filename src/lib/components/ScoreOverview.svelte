@@ -64,6 +64,7 @@
 
 	$effect(() => {
 		width = Math.min(possibleWidth, width);
+		height = Math.round(width / aspectRatio);
 	});
 
 	$effect(() => {
