@@ -69,22 +69,28 @@
 		height = Math.min(possibleHeight, height);
 	});
 
-	function navigatePages(forward: boolean = false): void {
+	async function navigatePages(forward: boolean = false): Promise<void> {
 		if (forward) {
 			pageNumber = pageNumber === totalPages ? 1 : pageNumber + 1;
 		} else {
 			pageNumber = pageNumber === 1 ? totalPages : pageNumber - 1;
 		}
-		pdfViewer?.goToPage(pageNumber);
+		isPdfLoaded = false;
+		await pdfViewer?.goToPage(pageNumber);
+		isPdfLoaded = true;
 	}
 
-	function handlePageChanged(event: CustomEvent<PdfPageContent>): void {
-		pageNumber = event.detail.pageNumber;
-	}
-
-	function handleLoadedSuccess(event: CustomEvent<PdfLoadSuccess>) {
+	function loadedSuccess(event: CustomEvent<PdfLoadSuccess>) {
 		totalPages = event.detail.totalPages;
 		isPdfLoaded = true;
+	}
+
+	function loadedFailed() {
+		isPdfLoaded = true;
+	}
+
+	function pageChanged(event: CustomEvent<PdfPageContent>): void {
+		pageNumber = event.detail.pageNumber;
 	}
 
 	function onDown(e: PointerEvent) {
@@ -173,9 +179,9 @@
 						<button
 							type="button"
 							class="btn-icon preset-filled"
-							onclick={() => navigatePages(false)}
+							onclick={async () => await navigatePages(false)}
 							title="Vorherige Seite"
-							disabled={!isPdfLoaded}
+							disabled={totalPages <= 1}
 						>
 							<ArrowLeft size={24} />
 						</button>
@@ -183,9 +189,9 @@
 						<button
 							type="button"
 							class="btn-icon preset-filled"
-							onclick={() => navigatePages(true)}
+							onclick={async () => await navigatePages(true)}
 							title="Nächste Seite"
-							disabled={!isPdfLoaded}
+							disabled={totalPages <= 1}
 						>
 							<ArrowRight size={24} />
 						</button>
@@ -201,8 +207,9 @@
 									withAnnotations: true,
 									withTextContent: true
 								}}
-								on:load_success={handleLoadedSuccess}
-								on:page_changed={handlePageChanged}
+								on:load_success={loadedSuccess}
+								on:load_failure={loadedFailed}
+								on:page_changed={pageChanged}
 								class="w-full h-full"
 							>
 								<svelte:fragment slot="loading_failed">
@@ -212,6 +219,9 @@
 								</svelte:fragment>
 							</PdfViewer>
 						</a>
+						{#if !isPdfLoaded}
+							<div class="h-full w-full bg-white"></div>
+						{/if}
 					</div>
 
 					{#if score?.songSnippets && score.songSnippets.length > 0}
