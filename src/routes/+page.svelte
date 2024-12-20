@@ -520,10 +520,11 @@
 			<h2 class="h2 pb-1 md:pb-3">Fazit</h2>
 			<p>
 				Im großen und ganzen bin ich zufrieden mit unserem Endprodukt und mir hat auch insgesamt die
-				Arbeit an einem eigenen Song sehr gefallen und würde es nochmal machen. Natürlich hätte noch
-				einiges verbessern können, nur war die Zeit nicht mehr da. Auch die Zeit nach dem
-				Weihnachtskonzert war zu wenig, da man auch noch ein Portfolio schreiben muss. Man hätte
-				z.B. ein komplexeres Bass, eine neue Aufnahme für die Stimme im Pre Chorus machen können,...
+				Arbeit an einem eigenen Song sehr gefallen. Ich würde es auch nochmal machen wollen.
+				Natürlich hätte noch einiges verbessern können, nur war die Zeit nicht mehr da. Auch die
+				Zeit nach dem Weihnachtskonzert war zu wenig, da man auch noch ein Portfolio schreiben muss.
+				Man hätte z.B. ein komplexeres Bass, eine neue Aufnahme für die Stimme im Pre Chorus machen
+				können,...
 			</p>
 			<br />
 			<p>
