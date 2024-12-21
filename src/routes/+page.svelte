@@ -6,28 +6,6 @@
 	let index: number = $state(0);
 	let offset: number = $state(0);
 	let progress: number = $state(0);
-
-	const confettiCount = 100;
-
-	const confettiColors = [
-		'#FFC700',
-		'#FF0000',
-		'#2E3192',
-		'#41BBC7',
-		'#7E3F98',
-		'#00FF00',
-		'#FF69B4'
-	];
-
-	let confetti = Array.from({ length: confettiCount }, () => ({
-		id: Math.random(),
-		color: confettiColors[Math.floor(Math.random() * confettiColors.length)],
-		left: Math.random() * 100,
-		duration: 2 + Math.random() * 3,
-		delay: Math.random() * 5,
-		size: 5 + Math.random() * 10,
-		rotation: Math.random() * 360
-	}));
 </script>
 
 <svelte:head>
@@ -516,7 +494,7 @@
 				die Stimme so besser verstehen.
 			</p>
 		</section>
-		<section class="py-14">
+		<section class="pt-14 pb-8 md:pb-14 xl:pb-28">
 			<h2 class="h2 pb-1 md:pb-3">Fazit</h2>
 			<p>
 				Im Großen und Ganzen bin ich zufrieden mit unserem Endprodukt und mir hat auch insgesamt die
