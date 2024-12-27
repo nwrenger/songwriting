@@ -26,27 +26,27 @@
 	pictures={new Map([
 		[
 			1, // Meine Erwartungen
-			['erwartungen.jpg']
+			['erwartungen.webp']
 		],
 		[
 			2, // Gruppen- und Ideenfindung
-			['ideen.jpg', 'trello.png']
+			['ideen.webp', 'trello.webp']
 		],
 		[
 			3, // Teamarbeit und Ablauf
-			['songtext-1.jpeg', 'songtext-2.jpeg', 'finaler-songtext-1.png', 'finaler-songtext-2.png']
+			['songtext-1.webp', 'songtext-2.webp', 'finaler-songtext-1.webp', 'finaler-songtext-2.webp']
 		],
 		[
 			4, // Aufbau
-			['aufbau.png']
+			['aufbau.webp']
 		],
 		[
 			8, // Aufnahme
-			['aufnahme-1.jpeg', 'aufnahme-2.jpeg', 'aufnahme-gitarre.png', 'aufnahme-stimme.png']
+			['aufnahme-1.webp', 'aufnahme-2.webp', 'aufnahme-gitarre.webp', 'aufnahme-stimme.webp']
 		],
 		[
 			9, // Nachbearbeitung
-			['amp.png', 'pitch.png', 'lautstärke.png', 'overdrive.png']
+			['amp.webp', 'pitch.webp', 'lautstärke.webp', 'overdrive.webp']
 		]
 	])}
 	score={new Map([
