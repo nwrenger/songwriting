@@ -105,7 +105,7 @@
 			</button>
 		{:else}
 			<div
-				class="fixed touch-none bottom-4 right-4 card bg-surface-100-900 border-[1px] border-surface-200-800 p-4 shadow-xl rounded flex flex-col gap-4"
+				class="fixed touch-none bottom-4 right-4 card bg-surface-100-900 border-[1px] border-surface-200-800 p-4 shadow-xl rounded-sm flex flex-col gap-4"
 				style="width: {width}px; height: {height}px; min-width: {minWidth}px; min-height: {minHeight}px;"
 			>
 				<button
@@ -118,7 +118,7 @@
 
 				<button
 					type="button"
-					class="absolute top-1 right-1 btn-icon preset-tonal-surface"
+					class="absolute top-1 right-1 btn-icon preset-tonal"
 					onclick={toggleView}
 					title="Verstecke Bilderübersicht"
 				>

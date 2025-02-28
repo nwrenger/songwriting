@@ -158,7 +158,7 @@
 				</button>
 			{:else}
 				<div
-					class="fixed touch-none bottom-4 left-4 card preset-filled-surface-100-900 border-[1px] border-surface-200-800 p-4 text-center shadow-lg rounded overflow-hidden flex flex-col gap-4"
+					class="fixed touch-none bottom-4 left-4 card bg-surface-100-900 border-[1px] border-surface-200-800 p-4 shadow-xl rounded-sm flex flex-col gap-4"
 					style="width: {width}px; height: {height}px; min-width:200px; min-height:200px;"
 				>
 					<button
@@ -171,7 +171,7 @@
 
 					<button
 						type="button"
-						class="absolute top-1 left-1 btn-icon preset-tonal-surface"
+						class="absolute top-1 left-1 btn-icon preset-tonal"
 						onclick={togglePdfViewer}
 						title="Verstecke Notenübersicht"
 					>

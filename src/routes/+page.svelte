@@ -127,12 +127,13 @@
 	<div slot="foreground" class="sr__hide max-w-5xl mx-auto overflow-x-hidden">
 		<section class="pb-14 pt-8 md:pt-12">
 			<h1 class="h1 pb-3 md:pb-5">Songwriting Portfolio</h1>
-			<p>Willkommen auf meinem Portfolio zum Projekt „Schreib deinen Song – Songwriting“!</p>
 			<p>
-				Auf dieser Webseite begleite ich Sie Schritt für Schritt durch den gesamten
-				Entstehungsprozess meines Songs – von den ersten Ideen hin zum finalen Abmischen. Folgen Sie
-				einfach dem Verlauf nach unten, um alle Entwicklungsschritte nachzuvollziehen.
+				Willkommen auf meinem Portfolio zum Projekt „Schreib deinen Song – Songwriting“! Auf dieser
+				Webseite begleite ich Sie Schritt für Schritt durch den gesamten Entstehungsprozess meines
+				Songs – von den ersten Ideen hin zum finalen Abmischen. Folgen Sie einfach dem Verlauf nach
+				unten, um alle Entwicklungsschritte nachzuvollziehen.
 			</p>
+			<br />
 			<p>
 				Unten rechts befindet sich eine Bilderübersicht (derzeit unsichtbar). Klicken Sie auf das
 				angezeigte Bild, um es in einem neuen Tab zu öffnen. Sie können die Bilderübersicht auch
@@ -140,6 +141,7 @@
 				unten links einen Notenübersicht (ebenfalls derzeit unsichtbar), der auf die gleiche Weise
 				funktioniert. Nur können Sie in der Notenübersicht auch die einzelnen Motive anhören.
 			</p>
+			<br />
 			<p>
 				Außerdem finden Sie in den jeweiligen oberen Ecken der Bild- und Notenübersicht eine
 				andersfarbige Fläche, mit dem sich das angezeigte Fenster ganz nach Ihren Wünschen
@@ -160,6 +162,7 @@
 				Anspruch. Insgesamt werden hier zwar einige Sorgen ersichtlich, jedoch wurde eher positiv
 				auf die kommende Projektarbeit geguckt (im Vorhinein verfasst, siehe Bild 1).
 			</p>
+			<br />
 			<p>
 				Inwiefern diese dann lief, ob es Schwierigkeiten gab, und würde ich es nochmal machen
 				wollen, erkläre und reflektiere ich im Folgenden.
