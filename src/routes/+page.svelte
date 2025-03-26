@@ -46,7 +46,7 @@
 		],
 		[
 			9, // Nachbearbeitung
-			['amp.webp', 'pitch.webp', 'lautstärke.webp', 'overdrive.webp']
+			['amp.webp', 'pitch.webp', 'lautstaerke.webp', 'overdrive.webp']
 		]
 	])}
 	score={new Map([
