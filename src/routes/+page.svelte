@@ -14,6 +14,12 @@
 		name="description"
 		content="Hi, dies ist mein Songwriting Portfolio für den Song `crazed self`."
 	/>
+	<!-- Open Graph -->
+	<meta property="og:title" content="Songwriting Portfolio" />
+	<meta
+		property="og:description"
+		content="Hi, dies ist mein Songwriting Portfolio für den Song `crazed self`."
+	/>
 </svelte:head>
 
 <Scroller
