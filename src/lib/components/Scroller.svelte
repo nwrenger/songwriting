@@ -108,7 +108,7 @@
 	$: bottom_px = Math.round(bottom * wh);
 	$: threshold_px = Math.round(threshold * wh);
 
-	$: top, bottom, threshold, parallax, update();
+	$: (top, bottom, threshold, parallax, update());
 
 	$: style = `
 		position: ${fixed ? 'fixed' : 'absolute'};
