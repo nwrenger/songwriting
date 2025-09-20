@@ -130,8 +130,8 @@
 		</div>
 	</div>
 
-	<div slot="foreground" class="sr__hide max-w-5xl mx-auto overflow-x-hidden">
-		<section class="pb-14 pt-8 md:pt-12">
+	<div slot="foreground" class="sr__hide max-w-5xl mx-auto px-4 overflow-x-hidden">
+		<section class="pb-10 pt-8 md:pt-12">
 			<h1 class="h1 pb-3 md:pb-5">Songwriting Portfolio</h1>
 			<p>
 				Willkommen auf meinem Portfolio zum Projekt „Schreib deinen Song – Songwriting“! Auf dieser
