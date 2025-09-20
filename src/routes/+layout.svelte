@@ -16,7 +16,7 @@
 		</p>
 
 		<div class="flex flex-wrap items-center gap-4">
-			<a href="https://nwrenger.dev/privacy-policy" class="anchor text-center">Privacy Policy</a>
+			<a href="https://nwrenger.dev/datenschutz" class="anchor text-center">Datenschutz</a>
 		</div>
 	</div>
 </footer>
