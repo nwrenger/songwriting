@@ -10,7 +10,8 @@
 
 @layer base {
 	html {
-		@apply h-full;
+		height: 100%;
+		overflow-x: hidden;
 	}
 
 	body {
